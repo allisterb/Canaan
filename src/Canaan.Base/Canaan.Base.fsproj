@@ -1,0 +1,17 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFramework>netstandard2.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <Compile Include="Logger.fs" />
+    <Compile Include="Api.fs" />
+    <Compile Include="Code.fs" />
+    <Compile Include="IO.fs" />
+    <Compile Include="Extensions.fs" />
+    <Compile Include="Feed.fs" />
+    <Compile Include="Person.fs" />
+  </ItemGroup>
+
+</Project>
