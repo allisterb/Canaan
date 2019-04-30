@@ -4,7 +4,8 @@
     <AzureFunctionsVersion>v2</AzureFunctionsVersion>
   </PropertyGroup>
   <ItemGroup>
-    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.24" />
+    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.24"/>
+    <PackageReference Include="NewsAPI" Version="*"/>
   </ItemGroup>
   <ItemGroup>
     <Content Update="host.json">
@@ -14,9 +15,9 @@
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
       <CopyToPublishDirectory>Never</CopyToPublishDirectory>
     </Content>
-    <Compile Include="AzureFunctions.fs" />
+   <Compile Include="NewsApiClient.fs"/> 
   </ItemGroup>
   <ItemGroup>
-    <ProjectReference Include="..\Canaan.Base\Canaan.Base.fsproj" />
+    <ProjectReference Include="..\Canaan.Base\Canaan.Base.fsproj"/>
   </ItemGroup>
 </Project>

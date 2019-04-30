@@ -9,6 +9,16 @@ Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Canaan.Core", "Canaan.Core\
 EndProject
 Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Canaan.Aggregators.NewsApi", "Canaan.Aggregator.NewsApi\Canaan.Aggregators.NewsApi.fsproj", "{79FB8023-4B42-4657-8DF2-BA05F3952AE4}"
 EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Canaan.Logger.Serilog", "Canaan.Logger.Serilog\Canaan.Logger.Serilog.fsproj", "{6943EDBE-E54A-4F69-83BB-88BAB728A13D}"
+EndProject
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Canaan.Tests.Aggregators.NewsApi", "..\tests\Canaan.Tests.Aggregators.NewsApi\Canaan.Tests.Aggregators.NewsApi.fsproj", "{FB511940-A8BF-4DD2-A871-1246D64E24A8}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D334D069-38C0-4ACB-B707-078A15801B47}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Canaan.Tests.BaseTests", "..\tests\Canaan.Tests.BaseTests\Canaan.Tests.BaseTests.fsproj", "{AD8E5606-A271-4841-B11B-BE273C811F00}"
+EndProject
+Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Canaan.Tests.Loggers", "..\tests\Canaan.Tests.Loggers\Canaan.Tests.Loggers.fsproj", "{5A67212E-F707-4571-98E9-20CB1DA08D48}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -27,9 +37,30 @@ Global
 		{79FB8023-4B42-4657-8DF2-BA05F3952AE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{79FB8023-4B42-4657-8DF2-BA05F3952AE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{79FB8023-4B42-4657-8DF2-BA05F3952AE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6943EDBE-E54A-4F69-83BB-88BAB728A13D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{6943EDBE-E54A-4F69-83BB-88BAB728A13D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{6943EDBE-E54A-4F69-83BB-88BAB728A13D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{6943EDBE-E54A-4F69-83BB-88BAB728A13D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{FB511940-A8BF-4DD2-A871-1246D64E24A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{FB511940-A8BF-4DD2-A871-1246D64E24A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{FB511940-A8BF-4DD2-A871-1246D64E24A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{FB511940-A8BF-4DD2-A871-1246D64E24A8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{AD8E5606-A271-4841-B11B-BE273C811F00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{AD8E5606-A271-4841-B11B-BE273C811F00}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{AD8E5606-A271-4841-B11B-BE273C811F00}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{AD8E5606-A271-4841-B11B-BE273C811F00}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5A67212E-F707-4571-98E9-20CB1DA08D48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5A67212E-F707-4571-98E9-20CB1DA08D48}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5A67212E-F707-4571-98E9-20CB1DA08D48}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5A67212E-F707-4571-98E9-20CB1DA08D48}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(NestedProjects) = preSolution
+		{FB511940-A8BF-4DD2-A871-1246D64E24A8} = {D334D069-38C0-4ACB-B707-078A15801B47}
+		{AD8E5606-A271-4841-B11B-BE273C811F00} = {D334D069-38C0-4ACB-B707-078A15801B47}
+		{5A67212E-F707-4571-98E9-20CB1DA08D48} = {D334D069-38C0-4ACB-B707-078A15801B47}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9DC3F2E7-0877-4A12-B952-008477D8DEB6}
