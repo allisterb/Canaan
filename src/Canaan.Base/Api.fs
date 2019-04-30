@@ -29,6 +29,8 @@ type Api(?ct: CancellationToken) =
     member x.Type = x.GetType()
 
     member x.EnsureInit value = if x.Initialized then value else invalidOp <| sprintf "This %s object is not initialized." x.Type.Name
+
+
  
 and ApiResult<'TSuccess,'TFailure> = 
     | Success of 'TSuccess
@@ -144,6 +146,8 @@ module Api =
     let inline (>>>=) f1 f2  = bind' f2 f1
     
     let inline (>>@=) f1 f2  = bind'' f2 f1
+
+    let inline (<<@=) f1 f2  = bind'' f1 f2
 
     let inline (>=>) f1 f2 = tryCatch' f1 >> (bind' f2)
 

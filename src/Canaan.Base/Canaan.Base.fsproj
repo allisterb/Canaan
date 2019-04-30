@@ -11,7 +11,7 @@
     <Compile Include="Code.fs" />
     <Compile Include="IO.fs" />
     <Compile Include="Extensions.fs" />
-    <Compile Include="Feed.fs" />
+    <Compile Include="Article.fs" />
     <Compile Include="Person.fs" />
     <Compile Include="Aggregator.fs" />
   </ItemGroup>

@@ -1,4 +1,4 @@
-namespace Canaan.Tests
+namespace Canaan.Tests.Loggers
 
 open System
 
@@ -6,7 +6,7 @@ open Xunit
 
 open Canaan
 
-module Logger = 
+module Serilog = 
 
     [<Fact>]
     let ``Can create SerilogLogger ``() =

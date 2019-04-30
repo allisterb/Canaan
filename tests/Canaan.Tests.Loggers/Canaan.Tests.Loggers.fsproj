@@ -7,7 +7,7 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <Compile Include="LoggerTests.fs" />
+    <Compile Include="Serilog.fs" />
     <Compile Include="Program.fs" />
   </ItemGroup>
 
