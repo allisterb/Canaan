@@ -13,15 +13,13 @@ open Canaan
 type NewsApiClient(apiKey: string, ?ct: CancellationToken) = 
     inherit Aggregator(?ct = ct)
 
-    let client = if String.IsNullOrEmpty(apiKey) then new NewsAPI.NewsApiClient(apiKey) |> Some else None
+    let client = if String.IsNullOrEmpty(apiKey) then None else NewsAPI.NewsApiClient(apiKey) |> Some
 
     override x.Initialized = (apiKey  <> "") && (client <> None)
 
     member x.GetTopHeadlines() = 
         let c = client |> x.EnsureInit |> Option.get 
         c.GetTopHeadlines <| TopHeadlinesRequest() |> fun r -> r.Articles |> Seq.map (fun a -> NewsApiArticle(a, x.CancellationToken))
-        //let r =Seq.map (fun a -> NewsApiArticle(a, x.CancellationToken)) <<@=  c.GetTopHeadlines <| TopHeadlinesRequest() >>@= fun r -> r.Articles
-        //!> r >>@= Seq.map (fun a -> NewsApiArticle(a, x.CancellationToken))
         
         
  

@@ -16,7 +16,7 @@
       <CopyToPublishDirectory>Never</CopyToPublishDirectory>
     </Content>
     <Compile Include="NewsApiArticle.fs" />
-   <Compile Include="NewsApiClient.fs" /> 
+    <Compile Include="NewsApiClient.fs" /> 
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\Canaan.Base\Canaan.Base.fsproj" />

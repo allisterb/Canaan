@@ -1,3 +1,8 @@
 {
-    "FSharp.fsacRuntime": "netcore"
+    "FSharp.fsacRuntime": "netcore",
+    "files.exclude": {
+        "**/.vscode": true,
+        "**/bin": true,
+        "**/obj": true
+    }
 }

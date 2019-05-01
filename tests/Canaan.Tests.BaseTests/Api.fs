@@ -6,7 +6,7 @@ open Xunit
 
 open Canaan
 
-module Api = 
+module ApiTests = 
 
     [<Fact>]
     let ``Can construct``() =

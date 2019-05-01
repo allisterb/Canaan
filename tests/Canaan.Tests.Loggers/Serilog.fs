@@ -6,7 +6,7 @@ open Xunit
 
 open Canaan
 
-module Serilog = 
+module SerilogTests = 
 
     [<Fact>]
     let ``Can create SerilogLogger ``() =
