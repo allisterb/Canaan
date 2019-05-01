@@ -9,7 +9,10 @@ open NewsAPI.Models
 open NewsAPI.Constants
 
 open Canaan
+open NewsAPI.Constants
 
+exception NewsApiException of int * string
+ 
 type NewsApiClient(apiKey: string, ?ct: CancellationToken) = 
     inherit Aggregator(?ct = ct)
 
@@ -19,7 +22,15 @@ type NewsApiClient(apiKey: string, ?ct: CancellationToken) =
 
     member x.GetTopHeadlines() = 
         let c = client |> x.EnsureInit |> Option.get 
-        c.GetTopHeadlines <| TopHeadlinesRequest() |> fun r -> r.Articles |> Seq.map (fun a -> NewsApiArticle(a, x.CancellationToken))
+        let r =  !> c.GetTopHeadlines <| TopHeadlinesRequest() 
+        match r with
+        | Success result -> 
+            if result.Status = Statuses.Ok then 
+                result.Articles |> Seq.map(fun a -> NewsApiArticle(a, x.CancellationToken)) |> Success
+            else
+                NewsApiException((int)result.Error.Code, result.Error.Message) |> Failure
+        | Failure e -> e |> Failure         
+
         
         
  

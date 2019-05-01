@@ -1,4 +1,4 @@
-namespace Canaan.Tests.Loggers
+namespace Canaan.Tests
 
 open System
 
