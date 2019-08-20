@@ -1,5 +1,0 @@
-*.git
-*.vs
-(?d)*obj/
-(?d)*Debug/
-(?d)*Release/

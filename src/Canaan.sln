@@ -1,23 +1,29 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
-# Visual Studio 15
-VisualStudioVersion = 15.0.28010.2048
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29209.62
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Canaan.Base", "Canaan.Base\Canaan.Base.fsproj", "{52B29051-D3B4-4607-B9D4-CD30CB99E2D5}"
-EndProject
-Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Canaan.Core", "Canaan.Core\Canaan.Core.fsproj", "{8C1198D5-2EEF-485A-9728-94592A49161C}"
-EndProject
-Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Canaan.Aggregators.NewsApi", "Canaan.Aggregator.NewsApi\Canaan.Aggregators.NewsApi.fsproj", "{79FB8023-4B42-4657-8DF2-BA05F3952AE4}"
-EndProject
-Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Canaan.Logger.Serilog", "Canaan.Logger.Serilog\Canaan.Logger.Serilog.fsproj", "{6943EDBE-E54A-4F69-83BB-88BAB728A13D}"
-EndProject
-Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Canaan.Tests.Aggregators.NewsApi", "..\tests\Canaan.Tests.Aggregators.NewsApi\Canaan.Tests.Aggregators.NewsApi.fsproj", "{FB511940-A8BF-4DD2-A871-1246D64E24A8}"
-EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Tests", "Tests", "{D334D069-38C0-4ACB-B707-078A15801B47}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Canaan.Tests.BaseTests", "..\tests\Canaan.Tests.BaseTests\Canaan.Tests.BaseTests.fsproj", "{AD8E5606-A271-4841-B11B-BE273C811F00}"
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Base", "Base", "{7B0610D3-90C5-4FB3-94C3-880C50E208E8}"
 EndProject
-Project("{F2A71F9B-5D33-465A-A702-920D77279786}") = "Canaan.Tests.Loggers", "..\tests\Canaan.Tests.Loggers\Canaan.Tests.Loggers.fsproj", "{5A67212E-F707-4571-98E9-20CB1DA08D48}"
+Project("{6EC3EE1D-3C4E-46DD-8F32-0CC8E7565705}") = "Canaan.Base.Fs", "Base\Canaan.Base.Fs\Canaan.Base.Fs.fsproj", "{5330B71F-BD0E-4A3D-AE02-02E0784C652B}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Loggers", "Loggers", "{F1A77A3C-0D6D-4C4B-9CBA-A6CD45FC9261}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Canaan.Logger.Serilog", "Loggers\Canaan.Logger.Serilog\Canaan.Logger.Serilog.csproj", "{86A5129E-E3E8-48F6-8176-85664DFC54EC}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Canaan.Tests.Base", "..\tests\Canaan.Tests.Base\Canaan.Tests.Base.csproj", "{2ACC3337-9470-4443-9E71-B6F74A01281F}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Canaan.Tests.Loggers", "..\tests\Canaan.Tests.Loggers\Canaan.Tests.Loggers.csproj", "{EEDAE73F-5A31-4DDE-98D8-1F900BAC1E18}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Canaan.Base", "Base\Canaan.Base\Canaan.Base.csproj", "{9E2CF36F-577B-4101-9122-06BC2E05C9DC}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Aggregators", "Aggregators", "{F701CACF-59E9-45C1-81EE-206CD2C63B07}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Canaan.Aggregator.NewsApi", "Aggregators\Canaan.Aggregator.NewsApi\Canaan.Aggregator.NewsApi.csproj", "{CF348B62-66B2-4C04-A647-BB16B245A0BA}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Canaan.Tests.Aggregators", "..\tests\Canaan.Tests.Aggregators\Canaan.Tests.Aggregators.csproj", "{E5514617-EE5D-4936-AAC8-2ADA3325C783}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -25,42 +31,46 @@ Global
 		Release|Any CPU = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(ProjectConfigurationPlatforms) = postSolution
-		{52B29051-D3B4-4607-B9D4-CD30CB99E2D5}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{52B29051-D3B4-4607-B9D4-CD30CB99E2D5}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{52B29051-D3B4-4607-B9D4-CD30CB99E2D5}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{52B29051-D3B4-4607-B9D4-CD30CB99E2D5}.Release|Any CPU.Build.0 = Release|Any CPU
-		{8C1198D5-2EEF-485A-9728-94592A49161C}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{8C1198D5-2EEF-485A-9728-94592A49161C}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{8C1198D5-2EEF-485A-9728-94592A49161C}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{8C1198D5-2EEF-485A-9728-94592A49161C}.Release|Any CPU.Build.0 = Release|Any CPU
-		{79FB8023-4B42-4657-8DF2-BA05F3952AE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{79FB8023-4B42-4657-8DF2-BA05F3952AE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{79FB8023-4B42-4657-8DF2-BA05F3952AE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{79FB8023-4B42-4657-8DF2-BA05F3952AE4}.Release|Any CPU.Build.0 = Release|Any CPU
-		{6943EDBE-E54A-4F69-83BB-88BAB728A13D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{6943EDBE-E54A-4F69-83BB-88BAB728A13D}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{6943EDBE-E54A-4F69-83BB-88BAB728A13D}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{6943EDBE-E54A-4F69-83BB-88BAB728A13D}.Release|Any CPU.Build.0 = Release|Any CPU
-		{FB511940-A8BF-4DD2-A871-1246D64E24A8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{FB511940-A8BF-4DD2-A871-1246D64E24A8}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{FB511940-A8BF-4DD2-A871-1246D64E24A8}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{FB511940-A8BF-4DD2-A871-1246D64E24A8}.Release|Any CPU.Build.0 = Release|Any CPU
-		{AD8E5606-A271-4841-B11B-BE273C811F00}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{AD8E5606-A271-4841-B11B-BE273C811F00}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{AD8E5606-A271-4841-B11B-BE273C811F00}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{AD8E5606-A271-4841-B11B-BE273C811F00}.Release|Any CPU.Build.0 = Release|Any CPU
-		{5A67212E-F707-4571-98E9-20CB1DA08D48}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
-		{5A67212E-F707-4571-98E9-20CB1DA08D48}.Debug|Any CPU.Build.0 = Debug|Any CPU
-		{5A67212E-F707-4571-98E9-20CB1DA08D48}.Release|Any CPU.ActiveCfg = Release|Any CPU
-		{5A67212E-F707-4571-98E9-20CB1DA08D48}.Release|Any CPU.Build.0 = Release|Any CPU
+		{5330B71F-BD0E-4A3D-AE02-02E0784C652B}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{5330B71F-BD0E-4A3D-AE02-02E0784C652B}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{5330B71F-BD0E-4A3D-AE02-02E0784C652B}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{5330B71F-BD0E-4A3D-AE02-02E0784C652B}.Release|Any CPU.Build.0 = Release|Any CPU
+		{86A5129E-E3E8-48F6-8176-85664DFC54EC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{86A5129E-E3E8-48F6-8176-85664DFC54EC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{86A5129E-E3E8-48F6-8176-85664DFC54EC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{86A5129E-E3E8-48F6-8176-85664DFC54EC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{2ACC3337-9470-4443-9E71-B6F74A01281F}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{2ACC3337-9470-4443-9E71-B6F74A01281F}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{2ACC3337-9470-4443-9E71-B6F74A01281F}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{2ACC3337-9470-4443-9E71-B6F74A01281F}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EEDAE73F-5A31-4DDE-98D8-1F900BAC1E18}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EEDAE73F-5A31-4DDE-98D8-1F900BAC1E18}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EEDAE73F-5A31-4DDE-98D8-1F900BAC1E18}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EEDAE73F-5A31-4DDE-98D8-1F900BAC1E18}.Release|Any CPU.Build.0 = Release|Any CPU
+		{9E2CF36F-577B-4101-9122-06BC2E05C9DC}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{9E2CF36F-577B-4101-9122-06BC2E05C9DC}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{9E2CF36F-577B-4101-9122-06BC2E05C9DC}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{9E2CF36F-577B-4101-9122-06BC2E05C9DC}.Release|Any CPU.Build.0 = Release|Any CPU
+		{CF348B62-66B2-4C04-A647-BB16B245A0BA}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{CF348B62-66B2-4C04-A647-BB16B245A0BA}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{CF348B62-66B2-4C04-A647-BB16B245A0BA}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{CF348B62-66B2-4C04-A647-BB16B245A0BA}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E5514617-EE5D-4936-AAC8-2ADA3325C783}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E5514617-EE5D-4936-AAC8-2ADA3325C783}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E5514617-EE5D-4936-AAC8-2ADA3325C783}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E5514617-EE5D-4936-AAC8-2ADA3325C783}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
 	EndGlobalSection
 	GlobalSection(NestedProjects) = preSolution
-		{FB511940-A8BF-4DD2-A871-1246D64E24A8} = {D334D069-38C0-4ACB-B707-078A15801B47}
-		{AD8E5606-A271-4841-B11B-BE273C811F00} = {D334D069-38C0-4ACB-B707-078A15801B47}
-		{5A67212E-F707-4571-98E9-20CB1DA08D48} = {D334D069-38C0-4ACB-B707-078A15801B47}
+		{5330B71F-BD0E-4A3D-AE02-02E0784C652B} = {7B0610D3-90C5-4FB3-94C3-880C50E208E8}
+		{86A5129E-E3E8-48F6-8176-85664DFC54EC} = {F1A77A3C-0D6D-4C4B-9CBA-A6CD45FC9261}
+		{2ACC3337-9470-4443-9E71-B6F74A01281F} = {D334D069-38C0-4ACB-B707-078A15801B47}
+		{EEDAE73F-5A31-4DDE-98D8-1F900BAC1E18} = {D334D069-38C0-4ACB-B707-078A15801B47}
+		{9E2CF36F-577B-4101-9122-06BC2E05C9DC} = {7B0610D3-90C5-4FB3-94C3-880C50E208E8}
+		{CF348B62-66B2-4C04-A647-BB16B245A0BA} = {F701CACF-59E9-45C1-81EE-206CD2C63B07}
+		{E5514617-EE5D-4936-AAC8-2ADA3325C783} = {D334D069-38C0-4ACB-B707-078A15801B47}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9DC3F2E7-0877-4A12-B952-008477D8DEB6}

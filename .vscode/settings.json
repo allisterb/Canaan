@@ -1,6 +1,8 @@
 {
     "FSharp.fsacRuntime": "netcore",
     "files.exclude": {
+        "**/.stfolder": true,
+        "**/.vscode": true,
         "**/bin": true,
         "**/obj": true
     }
