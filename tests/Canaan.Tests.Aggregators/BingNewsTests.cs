@@ -17,7 +17,7 @@ namespace Canaan.Tests
             Assert.NotNull(b);
             Assert.True(b.Initialized);
             var q = b.SearchAsync("Donald Trump").Result;
-            Assert.True(q);
+            Assert.NotEmpty(q);
         }
     }
 }

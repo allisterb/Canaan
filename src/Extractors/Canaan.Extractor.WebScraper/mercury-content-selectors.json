@@ -1,0 +1,1572 @@
+{
+  "twofortysevensportsComExtractor": {
+    "domain": "247sports.com",
+    "supportedDomains": [
+      "247sports.com"
+    ],
+    "content": {
+      "selectors": [
+        "section.body.article"
+      ]
+    }
+  },
+  "AbcnewsGoComExtractor": {
+    "domain": "abcnews.go.com",
+    "supportedDomains": [
+      "abcnews.go.com"
+    ],
+    "content": {
+      "selectors": [
+        ".article-copy"
+      ]
+    }
+  },
+  "BiorxivOrgExtractor": {
+    "domain": "biorxiv.org",
+    "supportedDomains": [
+      "biorxiv.org"
+    ],
+    "content": {
+      "selectors": [
+        "div#abstract-1"
+      ]
+    }
+  },
+  "BlisterreviewComExtractor": {
+    "domain": "blisterreview.com",
+    "supportedDomains": [
+      "blisterreview.com"
+    ],
+    "content": {
+      "selectors": [
+        [
+          ".elementor-section-wrap",
+          ".elementor-text-editor > p, .elementor-text-editor > ul > li, .attachment-large, .wp-caption-text"
+        ]
+      ]
+    }
+  },
+  "BloggerExtractor": {
+    "domain": "blogspot.com",
+    "supportedDomains": [
+      "blogspot.com"
+    ],
+    "content": {
+      "selectors": [
+        ".post-content noscript"
+      ],
+      "clean": []
+    }
+  },
+  "BookwalkerJpExtractor": {
+    "domain": "bookwalker.jp",
+    "supportedDomains": [
+      "bookwalker.jp"
+    ],
+    "content": {
+      "selectors": [
+        [
+          "div.main-info",
+          "div.main-cover-inner"
+        ]
+      ]
+    }
+  },
+  "BuzzapJpExtractor": {
+    "domain": "buzzap.jp",
+    "supportedDomains": [
+      "buzzap.jp"
+    ],
+    "content": {
+      "selectors": [
+        "div.ctiframe"
+      ]
+    }
+  },
+  "ClinicaltrialsGovExtractor": {
+    "domain": "clinicaltrials.gov",
+    "supportedDomains": [
+      "clinicaltrials.gov"
+    ],
+    "content": {
+      "selectors": [
+        "div#tab-body"
+      ]
+    }
+  },
+  "DeadlineComExtractor": {
+    "domain": "deadline.com",
+    "supportedDomains": [
+      "deadline.com"
+    ],
+    "content": {
+      "selectors": [
+        "div.a-article-grid__main.pmc-a-grid article.pmc-a-grid-item"
+      ]
+    }
+  },
+  "DeadspinExtractor": {
+    "domain": "deadspin.com",
+    "supportedDomains": [
+      "jezebel.com",
+      "lifehacker.com",
+      "kotaku.com",
+      "gizmodo.com",
+      "jalopnik.com",
+      "kinja.com",
+      "avclub.com",
+      "clickhole.com",
+      "splinternews.com",
+      "theonion.com",
+      "theroot.com",
+      "thetakeout.com",
+      "theinventory.com"
+    ],
+    "content": {
+      "selectors": [
+        ".post-content",
+        ".entry-content"
+      ]
+    }
+  },
+  "WikiaExtractor": {
+    "domain": "fandom.wikia.com",
+    "supportedDomains": [
+      "fandom.wikia.com"
+    ],
+    "content": {
+      "selectors": [
+        ".grid-content",
+        ".entry-content"
+      ]
+    }
+  },
+  "FortuneComExtractor": {
+    "domain": "fortune.com",
+    "supportedDomains": [
+      "fortune.com"
+    ],
+    "content": {
+      "selectors": [
+        [
+          "picture",
+          "article.row"
+        ],
+        "article.row"
+      ]
+    }
+  },
+  "ForwardComExtractor": {
+    "domain": "forward.com",
+    "supportedDomains": [
+      "forward.com"
+    ],
+    "content": {
+      "selectors": [
+        [
+          ".post-item-media-wrap",
+          ".post-item p"
+        ]
+      ]
+    }
+  },
+  "FusionNetExtractor": {
+    "domain": "fusion.net",
+    "supportedDomains": [
+      "fusion.net"
+    ],
+    "content": {
+      "selectors": [
+        [
+          ".post-featured-media",
+          ".article-content"
+        ],
+        ".article-content"
+      ]
+    }
+  },
+  "GeniusComExtractor": {
+    "domain": "genius.com",
+    "supportedDomains": [
+      "genius.com"
+    ],
+    "content": {
+      "selectors": [
+        ".lyrics"
+      ]
+    }
+  },
+  "GetnewsJpExtractor": {
+    "domain": "getnews.jp",
+    "supportedDomains": [
+      "getnews.jp"
+    ],
+    "content": {
+      "selectors": [
+        "div.post-bodycopy"
+      ]
+    }
+  },
+  "GithubComExtractor": {
+    "domain": "github.com",
+    "supportedDomains": [
+      "github.com"
+    ],
+    "content": {
+      "selectors": [
+        [
+          "#readme article"
+        ]
+      ]
+    }
+  },
+  "GothamistComExtractor": {
+    "domain": "gothamist.com",
+    "supportedDomains": [
+      "chicagoist.com",
+      "laist.com",
+      "sfist.com",
+      "shanghaiist.com",
+      "dcist.com"
+    ],
+    "content": {
+      "selectors": [
+        ".entry-body"
+      ]
+    }
+  },
+  "HellogigglesComExtractor": {
+    "domain": "hellogiggles.com",
+    "supportedDomains": [
+      "hellogiggles.com"
+    ],
+    "content": {
+      "selectors": [
+        ".entry-content"
+      ]
+    }
+  },
+  "IciRadioCanadaCaExtractor": {
+    "domain": "ici.radio-canada.ca",
+    "supportedDomains": [
+      "ici.radio-canada.ca"
+    ],
+    "content": {
+      "selectors": [
+        [
+          ".main-multimedia-item",
+          ".news-story-content"
+        ]
+      ]
+    }
+  },
+  "JapanCnetComExtractor": {
+    "domain": "japan.cnet.com",
+    "supportedDomains": [
+      "japan.cnet.com"
+    ],
+    "content": {
+      "selectors": [
+        "div.article_body"
+      ]
+    }
+  },
+  "JapanZdnetComExtractor": {
+    "domain": "japan.zdnet.com",
+    "supportedDomains": [
+      "japan.zdnet.com"
+    ],
+    "content": {
+      "selectors": [
+        "div.article_body"
+      ]
+    }
+  },
+  "JvndbJvnJpExtractor": {
+    "domain": "jvndb.jvn.jp",
+    "supportedDomains": [
+      "jvndb.jvn.jp"
+    ],
+    "content": {
+      "selectors": [
+        "#news-list"
+      ]
+    }
+  },
+  "MashableComExtractor": {
+    "domain": "mashable.com",
+    "supportedDomains": [
+      "mashable.com"
+    ],
+    "content": {
+      "selectors": [
+        "section.article-content.blueprint"
+      ]
+    }
+  },
+  "MediumExtractor": {
+    "domain": "medium.com",
+    "supportedDomains": [
+      "trackchanges.postlight.com"
+    ],
+    "content": {
+      "selectors": [
+        [
+          ".section-content"
+        ],
+        ".section-content",
+        "article > div > section"
+      ]
+    }
+  },
+  "MoneyCnnComExtractor": {
+    "domain": "money.cnn.com",
+    "supportedDomains": [
+      "money.cnn.com"
+    ],
+    "content": {
+      "selectors": [
+        "#storytext"
+      ]
+    }
+  },
+  "NewrepublicComExtractor": {
+    "domain": "newrepublic.com",
+    "supportedDomains": [
+      "newrepublic.com"
+    ],
+    "content": {
+      "selectors": [
+        [
+          ".article-cover",
+          "div.content-body"
+        ],
+        [
+          ".minute-image",
+          ".minutes-primary div.content-body"
+        ]
+      ]
+    }
+  },
+  "NewsMynaviJpExtractor": {
+    "domain": "news.mynavi.jp",
+    "supportedDomains": [
+      "news.mynavi.jp"
+    ],
+    "content": {
+      "selectors": [
+        "main article div"
+      ]
+    }
+  },
+  "NewsNationalgeographicComExtractor": {
+    "domain": "news.nationalgeographic.com",
+    "supportedDomains": [
+      "news.nationalgeographic.com"
+    ],
+    "content": {
+      "selectors": [
+        [
+          ".parsys.content",
+          ".__image-lead__"
+        ],
+        ".content"
+      ]
+    }
+  },
+  "NYMagExtractor": {
+    "domain": "nymag.com",
+    "supportedDomains": [
+      "nymag.com"
+    ],
+    "content": {
+      "selectors": [
+        "div.article-content",
+        "section.body",
+        "article.article"
+      ],
+      "clean": [
+        ".ad",
+        ".single-related-story"
+      ]
+    }
+  },
+  "ObserverComExtractor": {
+    "domain": "observer.com",
+    "supportedDomains": [
+      "observer.com"
+    ],
+    "content": {
+      "selectors": [
+        "div.entry-content"
+      ]
+    }
+  },
+  "OtrsComExtractor": {
+    "domain": "otrs.com",
+    "supportedDomains": [
+      "otrs.com"
+    ],
+    "content": {
+      "selectors": [
+        "#main article"
+      ]
+    }
+  },
+  "PagesixComExtractor": {
+    "domain": "pagesix.com",
+    "supportedDomains": [
+      "nypost.com"
+    ],
+    "content": {
+      "selectors": [
+        [
+          "#featured-image-wrapper",
+          ".entry-content"
+        ],
+        ".entry-content"
+      ]
+    }
+  },
+  "PeopleComExtractor": {
+    "domain": "people.com",
+    "supportedDomains": [
+      "people.com"
+    ],
+    "content": {
+      "selectors": [
+        "div.article-body__inner"
+      ]
+    }
+  },
+  "PhpspotOrgExtractor": {
+    "domain": "phpspot.org",
+    "supportedDomains": [
+      "phpspot.org"
+    ],
+    "content": {
+      "selectors": [
+        "div.entrybody"
+      ]
+    }
+  },
+  "QzComExtractor": {
+    "domain": "qz.com",
+    "supportedDomains": [
+      "qz.com"
+    ],
+    "content": {
+      "selectors": [
+        [
+          "figure.featured-image",
+          ".item-body"
+        ],
+        ".item-body"
+      ]
+    }
+  },
+  "ScanNetsecurityNeJpExtractor": {
+    "domain": "scan.netsecurity.ne.jp",
+    "supportedDomains": [
+      "scan.netsecurity.ne.jp"
+    ],
+    "content": {
+      "selectors": [
+        "div.arti-content.arti-content--thumbnail"
+      ]
+    }
+  },
+  "ScienceflyComExtractor": {
+    "domain": "sciencefly.com",
+    "supportedDomains": [
+      "sciencefly.com"
+    ],
+    "content": {
+      "selectors": [
+        "div.theiaPostSlider_slides"
+      ]
+    }
+  },
+  "SectIijAdJpExtractor": {
+    "domain": "sect.iij.ad.jp",
+    "supportedDomains": [
+      "sect.iij.ad.jp"
+    ],
+    "content": {
+      "selectors": [
+        "#article"
+      ]
+    }
+  },
+  "TakagihiromitsuJpExtractor": {
+    "domain": "takagi-hiromitsu.jp",
+    "supportedDomains": [
+      "takagi-hiromitsu.jp"
+    ],
+    "content": {
+      "selectors": [
+        "div.body"
+      ]
+    }
+  },
+  "TechlogIijAdJpExtractor": {
+    "domain": "techlog.iij.ad.jp",
+    "supportedDomains": [
+      "techlog.iij.ad.jp"
+    ],
+    "content": {
+      "selectors": [
+        "div.entry-content"
+      ]
+    }
+  },
+  "ThefederalistpapersOrgExtractor": {
+    "domain": "thefederalistpapers.org",
+    "supportedDomains": [
+      "thefederalistpapers.org"
+    ],
+    "content": {
+      "selectors": [
+        ".entry-content"
+      ]
+    }
+  },
+  "ThoughtcatalogComExtractor": {
+    "domain": "thoughtcatalog.com",
+    "supportedDomains": [
+      "thoughtcatalog.com"
+    ],
+    "content": {
+      "selectors": [
+        ".entry.post"
+      ]
+    }
+  },
+  "UproxxComExtractor": {
+    "domain": "uproxx.com",
+    "supportedDomains": [
+      "uproxx.com"
+    ],
+    "content": {
+      "selectors": [
+        ".post-body"
+      ]
+    }
+  },
+  "WeeklyAsciiJpExtractor": {
+    "domain": "weekly.ascii.jp",
+    "supportedDomains": [
+      "weekly.ascii.jp"
+    ],
+    "content": {
+      "selectors": [
+        "div.article"
+      ]
+    }
+  },
+  "WikipediaExtractor": {
+    "domain": "wikipedia.org",
+    "supportedDomains": [
+      "wikipedia.org"
+    ],
+    "content": {
+      "selectors": [
+        "#mw-content-text"
+      ]
+    }
+  },
+  "WiredJpExtractor": {
+    "domain": "wired.jp",
+    "supportedDomains": [
+      "wired.jp"
+    ],
+    "content": {
+      "selectors": [
+        "article.article-detail"
+      ]
+    }
+  },
+  "WwwAlComExtractor": {
+    "domain": "www.al.com",
+    "supportedDomains": [
+      "www.al.com"
+    ],
+    "content": {
+      "selectors": [
+        ".entry-content"
+      ]
+    }
+  },
+  "WwwAmericanowComExtractor": {
+    "domain": "www.americanow.com",
+    "supportedDomains": [
+      "www.americanow.com"
+    ],
+    "content": {
+      "selectors": [
+        [
+          ".article-content",
+          ".image",
+          ".body"
+        ],
+        ".body"
+      ]
+    }
+  },
+  "WwwAndroidcentralComExtractor": {
+    "domain": "www.androidcentral.com",
+    "supportedDomains": [
+      "www.androidcentral.com"
+    ],
+    "content": {
+      "selectors": [
+        ".article-body"
+      ]
+    }
+  },
+  "WwwAolComExtractor": {
+    "domain": "www.aol.com",
+    "supportedDomains": [
+      "www.aol.com"
+    ],
+    "content": {
+      "selectors": [
+        ".article-content"
+      ]
+    }
+  },
+  "ApartmentTherapyExtractor": {
+    "domain": "www.apartmenttherapy.com",
+    "supportedDomains": [
+      "www.apartmenttherapy.com"
+    ],
+    "content": {
+      "selectors": [
+        "div.post__content"
+      ]
+    }
+  },
+  "WwwAsahiComExtractor": {
+    "domain": "www.asahi.com",
+    "supportedDomains": [
+      "www.asahi.com"
+    ],
+    "content": {
+      "selectors": [
+        "#MainInner div.ArticleBody"
+      ]
+    }
+  },
+  "WwwBloombergComExtractor": {
+    "domain": "www.bloomberg.com",
+    "supportedDomains": [
+      "www.bloomberg.com"
+    ],
+    "content": {
+      "selectors": [
+        ".article-body__content",
+        [
+          "section.copy-block"
+        ],
+        ".body-copy"
+      ]
+    }
+  },
+  "BroadwayWorldExtractor": {
+    "domain": "www.broadwayworld.com",
+    "supportedDomains": [
+      "www.broadwayworld.com"
+    ],
+    "content": {
+      "selectors": [
+        "div[itemprop=articlebody]"
+      ]
+    }
+  },
+  "WwwBustleComExtractor": {
+    "domain": "www.bustle.com",
+    "supportedDomains": [
+      "www.bustle.com"
+    ],
+    "content": {
+      "selectors": [
+        ".post-page__body"
+      ]
+    }
+  },
+  "BuzzfeedExtractor": {
+    "domain": "www.buzzfeed.com",
+    "supportedDomains": [
+      "www.buzzfeed.com"
+    ],
+    "content": {
+      "selectors": [
+        [
+          ".longform_custom_header_media",
+          "#buzz_sub_buzz"
+        ],
+        "#buzz_sub_buzz"
+      ]
+    }
+  },
+  "WwwCbssportsComExtractor": {
+    "domain": "www.cbssports.com",
+    "supportedDomains": [
+      "www.cbssports.com"
+    ],
+    "content": {
+      "selectors": [
+        ".article"
+      ]
+    }
+  },
+  "WwwChicagotribuneComExtractor": {
+    "domain": "www.chicagotribune.com",
+    "supportedDomains": [
+      "www.chicagotribune.com"
+    ],
+    "content": {
+      "selectors": [
+        "div.trb_ar_page"
+      ]
+    }
+  },
+  "WwwCinemablendComExtractor": {
+    "domain": "www.cinemablend.com",
+    "supportedDomains": [
+      "www.cinemablend.com"
+    ],
+    "content": {
+      "selectors": [
+        "div#wrap_left_content"
+      ]
+    }
+  },
+  "WwwCnbcComExtractor": {
+    "domain": "www.cnbc.com",
+    "supportedDomains": [
+      "www.cnbc.com"
+    ],
+    "content": {
+      "selectors": [
+        "div#article_body.content",
+        "div.story",
+        "div.ArticleBody-articleBody"
+      ]
+    }
+  },
+  "WwwCnetComExtractor": {
+    "domain": "www.cnet.com",
+    "supportedDomains": [
+      "www.cnet.com"
+    ],
+    "content": {
+      "selectors": [
+        [
+          "img.__image-lead__",
+          ".article-main-body"
+        ],
+        ".article-main-body"
+      ]
+    }
+  },
+  "WwwCnnComExtractor": {
+    "domain": "www.cnn.com",
+    "supportedDomains": [
+      "www.cnn.com"
+    ],
+    "content": {
+      "selectors": [
+        [
+          ".media__video--thumbnail",
+          ".zn-body-text"
+        ],
+        ".zn-body-text",
+        "div[itemprop=\"articleBody\"]"
+      ]
+    }
+  },
+  "WwwDmagazineComExtractor": {
+    "domain": "www.dmagazine.com",
+    "supportedDomains": [
+      "www.dmagazine.com"
+    ],
+    "content": {
+      "selectors": [
+        ".story__content"
+      ]
+    }
+  },
+  "WwwElecomCoJpExtractor": {
+    "domain": "www.elecom.co.jp",
+    "supportedDomains": [
+      "www.elecom.co.jp"
+    ],
+    "content": {
+      "selectors": [
+        "td.TableMain2"
+      ]
+    }
+  },
+  "WwwEonlineComExtractor": {
+    "domain": "www.eonline.com",
+    "supportedDomains": [
+      "www.eonline.com"
+    ],
+    "content": {
+      "selectors": [
+        [
+          ".post-content section, .post-content div.post-content__image"
+        ]
+      ]
+    }
+  },
+  "WwwFoolComExtractor": {
+    "domain": "www.fool.com",
+    "supportedDomains": [
+      "www.fool.com"
+    ],
+    "content": {
+      "selectors": [
+        ".article-content"
+      ]
+    }
+  },
+  "WwwFortinetComExtractor": {
+    "domain": "www.fortinet.com",
+    "supportedDomains": [
+      "www.fortinet.com"
+    ],
+    "content": {
+      "selectors": [
+        "div.responsivegrid.aem-GridColumn.aem-GridColumn--default--12"
+      ]
+    }
+  },
+  "WwwGizmodoJpExtractor": {
+    "domain": "www.gizmodo.jp",
+    "supportedDomains": [
+      "www.gizmodo.jp"
+    ],
+    "content": {
+      "selectors": [
+        "article.p-post"
+      ]
+    }
+  },
+  "WwwHowtogeekComExtractor": {
+    "domain": "www.howtogeek.com",
+    "supportedDomains": [
+      "www.howtogeek.com"
+    ],
+    "content": {
+      "selectors": [
+        ".thecontent"
+      ]
+    }
+  },
+  "WwwHuffingtonpostComExtractor": {
+    "domain": "www.huffingtonpost.com",
+    "supportedDomains": [
+      "www.huffingtonpost.com"
+    ],
+    "content": {
+      "selectors": [
+        "div.entry__body"
+      ]
+    }
+  },
+  "WwwInfoqComExtractor": {
+    "domain": "www.infoq.com",
+    "supportedDomains": [
+      "www.infoq.com"
+    ],
+    "content": {
+      "selectors": [
+        "div.article__data"
+      ]
+    }
+  },
+  "WwwInquisitrComExtractor": {
+    "domain": "www.inquisitr.com",
+    "supportedDomains": [
+      "www.inquisitr.com"
+    ],
+    "content": {
+      "selectors": [
+        "article.story",
+        ".entry-content."
+      ]
+    }
+  },
+  "WwwIpaGoJpExtractor": {
+    "domain": "www.ipa.go.jp",
+    "supportedDomains": [
+      "www.ipa.go.jp"
+    ],
+    "content": {
+      "selectors": [
+        "#ipar_main"
+      ]
+    }
+  },
+  "WwwItmediaCoJpExtractor": {
+    "domain": "www.itmedia.co.jp",
+    "supportedDomains": [
+      "www.atmarkit.co.jp",
+      "techtarget.itmedia.co.jp",
+      "nlab.itmedia.co.jp"
+    ],
+    "content": {
+      "selectors": [
+        "#cmsBody"
+      ]
+    }
+  },
+  "WwwJnsaOrgExtractor": {
+    "domain": "www.jnsa.org",
+    "supportedDomains": [
+      "www.jnsa.org"
+    ],
+    "content": {
+      "selectors": [
+        "#main_area"
+      ]
+    }
+  },
+  "WwwLatimesComExtractor": {
+    "domain": "www.latimes.com",
+    "supportedDomains": [
+      "www.latimes.com"
+    ],
+    "content": {
+      "selectors": [
+        ".trb_ar_main"
+      ]
+    }
+  },
+  "WwwLemondeFrExtractor": {
+    "domain": "www.lemonde.fr",
+    "supportedDomains": [
+      "www.lemonde.fr"
+    ],
+    "content": {
+      "selectors": [
+        ".article__content"
+      ]
+    }
+  },
+  "WwwLifehackerJpExtractor": {
+    "domain": "www.lifehacker.jp",
+    "supportedDomains": [
+      "www.lifehacker.jp"
+    ],
+    "content": {
+      "selectors": [
+        "div.lh-entryDetail-body"
+      ]
+    }
+  },
+  "WwwLinkedinComExtractor": {
+    "domain": "www.linkedin.com",
+    "supportedDomains": [
+      "www.linkedin.com"
+    ],
+    "content": {
+      "selectors": [
+        [
+          "header figure",
+          ".prose"
+        ],
+        ".prose"
+      ]
+    }
+  },
+  "LittleThingsExtractor": {
+    "domain": "www.littlethings.com",
+    "supportedDomains": [
+      "www.littlethings.com"
+    ],
+    "content": {
+      "selectors": [
+        ".mainContentIntro",
+        ".content-wrapper"
+      ]
+    }
+  },
+  "WwwMacrumorsComExtractor": {
+    "domain": "www.macrumors.com",
+    "supportedDomains": [
+      "www.macrumors.com"
+    ],
+    "content": {
+      "selectors": [
+        ".article"
+      ]
+    }
+  },
+  "WwwMentalflossComExtractor": {
+    "domain": "www.mentalfloss.com",
+    "supportedDomains": [
+      "www.mentalfloss.com"
+    ],
+    "content": {
+      "selectors": [
+        "div.field.field-name-body"
+      ]
+    }
+  },
+  "WwwMiamiheraldComExtractor": {
+    "domain": "www.miamiherald.com",
+    "supportedDomains": [
+      "www.miamiherald.com"
+    ],
+    "content": {
+      "selectors": [
+        "div.dateline-storybody"
+      ]
+    }
+  },
+  "WwwMoongiftJpExtractor": {
+    "domain": "www.moongift.jp",
+    "supportedDomains": [
+      "www.moongift.jp"
+    ],
+    "content": {
+      "selectors": [
+        "#main"
+      ]
+    }
+  },
+  "MSNExtractor": {
+    "domain": "www.msn.com",
+    "supportedDomains": [
+      "www.msn.com"
+    ],
+    "content": {
+      "selectors": [
+        "div.richtext"
+      ]
+    }
+  },
+  "WwwMsnbcComExtractor": {
+    "domain": "www.msnbc.com",
+    "supportedDomains": [
+      "www.msnbc.com"
+    ],
+    "content": {
+      "selectors": [
+        ".pane-node-body"
+      ]
+    }
+  },
+  "WwwNationalgeographicComExtractor": {
+    "domain": "www.nationalgeographic.com",
+    "supportedDomains": [
+      "www.nationalgeographic.com"
+    ],
+    "content": {
+      "selectors": [
+        [
+          ".parsys.content",
+          ".__image-lead__"
+        ],
+        ".content"
+      ]
+    }
+  },
+  "WwwNbcnewsComExtractor": {
+    "domain": "www.nbcnews.com",
+    "supportedDomains": [
+      "www.nbcnews.com"
+    ],
+    "content": {
+      "selectors": [
+        "div.article-body"
+      ]
+    }
+  },
+  "NewYorkerExtractor": {
+    "domain": "www.newyorker.com",
+    "supportedDomains": [
+      "www.newyorker.com"
+    ],
+    "content": {
+      "selectors": [
+        "main[class^=\"Layout__content\"]"
+      ]
+    }
+  },
+  "WwwNjComExtractor": {
+    "domain": "www.nj.com",
+    "supportedDomains": [
+      "www.nj.com"
+    ],
+    "content": {
+      "selectors": [
+        ".entry-content"
+      ]
+    }
+  },
+  "WwwNprOrgExtractor": {
+    "domain": "www.npr.org",
+    "supportedDomains": [
+      "www.npr.org"
+    ],
+    "content": {
+      "selectors": [
+        ".storytext"
+      ]
+    }
+  },
+  "WwwNydailynewsComExtractor": {
+    "domain": "www.nydailynews.com",
+    "supportedDomains": [
+      "www.nydailynews.com"
+    ],
+    "content": {
+      "selectors": [
+        "article#ra-body"
+      ]
+    }
+  },
+  "NYTimesExtractor": {
+    "domain": "www.nytimes.com",
+    "supportedDomains": [
+      "www.nytimes.com"
+    ],
+    "content": {
+      "selectors": [
+        "div.g-blocks",
+        "article#story"
+      ]
+    }
+  },
+  "WwwOpposingviewsComExtractor": {
+    "domain": "www.opposingviews.com",
+    "supportedDomains": [
+      "www.opposingviews.com"
+    ],
+    "content": {
+      "selectors": [
+        ".article-content"
+      ]
+    }
+  },
+  "WwwOreillyCoJpExtractor": {
+    "domain": "www.oreilly.co.jp",
+    "supportedDomains": [
+      "www.oreilly.co.jp"
+    ],
+    "content": {
+      "selectors": [
+        "#content"
+      ]
+    }
+  },
+  "WwwOssnewsJpExtractor": {
+    "domain": "www.ossnews.jp",
+    "supportedDomains": [
+      "www.ossnews.jp"
+    ],
+    "content": {
+      "selectors": [
+        "#alpha-block .section:has(h1.hxnewstitle)"
+      ]
+    }
+  },
+  "WwwPhoronixComExtractor": {
+    "domain": "www.phoronix.com",
+    "supportedDomains": [
+      "www.phoronix.com"
+    ],
+    "content": {
+      "selectors": [
+        ".content"
+      ]
+    }
+  },
+  "PoliticoExtractor": {
+    "domain": "www.politico.com",
+    "supportedDomains": [
+      "www.politico.com"
+    ],
+    "content": {
+      "selectors": [
+        ".story-main-content",
+        ".content-group",
+        ".story-core",
+        ".story-text"
+      ]
+    }
+  },
+  "WwwPopsugarComExtractor": {
+    "domain": "www.popsugar.com",
+    "supportedDomains": [
+      "www.popsugar.com"
+    ],
+    "content": {
+      "selectors": [
+        "#content"
+      ]
+    }
+  },
+  "WwwProspectmagazineCoUkExtractor": {
+    "domain": "www.prospectmagazine.co.uk",
+    "supportedDomains": [
+      "www.prospectmagazine.co.uk"
+    ],
+    "content": {
+      "selectors": [
+        "article .post_content"
+      ]
+    }
+  },
+  "WwwPublickey1JpExtractor": {
+    "domain": "www.publickey1.jp",
+    "supportedDomains": [
+      "www.publickey1.jp"
+    ],
+    "content": {
+      "selectors": [
+        "#maincol"
+      ]
+    }
+  },
+  "WwwQdailyComExtractor": {
+    "domain": "www.qdaily.com",
+    "supportedDomains": [
+      "www.qdaily.com"
+    ],
+    "content": {
+      "selectors": [
+        ".detail"
+      ]
+    }
+  },
+  "WwwRawstoryComExtractor": {
+    "domain": "www.rawstory.com",
+    "supportedDomains": [
+      "www.rawstory.com"
+    ],
+    "content": {
+      "selectors": [
+        ".blog-content"
+      ]
+    }
+  },
+  "WwwRbbtodayComExtractor": {
+    "domain": "www.rbbtoday.com",
+    "supportedDomains": [
+      "www.rbbtoday.com"
+    ],
+    "content": {
+      "selectors": [
+        ".arti-content"
+      ]
+    }
+  },
+  "WwwRecodeNetExtractor": {
+    "domain": "www.recode.net",
+    "supportedDomains": [
+      "www.recode.net"
+    ],
+    "content": {
+      "selectors": [
+        [
+          "figure.e-image--hero",
+          ".c-entry-content"
+        ],
+        ".c-entry-content"
+      ]
+    }
+  },
+  "WwwRedditComExtractor": {
+    "domain": "www.reddit.com",
+    "supportedDomains": [
+      "www.reddit.com"
+    ],
+    "content": {
+      "selectors": [
+        [
+          "div[data-test-id=\"post-content\"] p"
+        ],
+        [
+          "div[data-test-id=\"post-content\"] a[target=\"_blank\"]:not([data-click-id=\"timestamp\"])",
+          "div[data-test-id=\"post-content\"] div[data-click-id=\"media\"]"
+        ],
+        [
+          "div[data-test-id=\"post-content\"] div[data-click-id=\"media\"]"
+        ],
+        [
+          "div[data-test-id=\"post-content\"] a[target=\"_blank\"]:not([data-click-id=\"timestamp\"])"
+        ],
+        "div[data-test-id=\"post-content\"]"
+      ]
+    }
+  },
+  "WwwRefinery29ComExtractor": {
+    "domain": "www.refinery29.com",
+    "supportedDomains": [
+      "www.refinery29.com"
+    ],
+    "content": {
+      "selectors": [
+        [
+          ".full-width-opener",
+          ".article-content"
+        ],
+        ".article-content",
+        ".body"
+      ]
+    }
+  },
+  "WwwReutersComExtractor": {
+    "domain": "www.reuters.com",
+    "supportedDomains": [
+      "www.reuters.com"
+    ],
+    "content": {
+      "selectors": [
+        "#article-text"
+      ]
+    }
+  },
+  "WwwRollingstoneComExtractor": {
+    "domain": "www.rollingstone.com",
+    "supportedDomains": [
+      "www.rollingstone.com"
+    ],
+    "content": {
+      "selectors": [
+        [
+          ".lead-container",
+          ".article-content"
+        ],
+        ".article-content"
+      ]
+    }
+  },
+  "WwwSanwaCoJpExtractor": {
+    "domain": "www.sanwa.co.jp",
+    "supportedDomains": [
+      "www.sanwa.co.jp"
+    ],
+    "content": {
+      "selectors": [
+        "#newsContent"
+      ]
+    }
+  },
+  "WwwSbnationComExtractor": {
+    "domain": "www.sbnation.com",
+    "supportedDomains": [
+      "www.sbnation.com"
+    ],
+    "content": {
+      "selectors": [
+        "div.c-entry-content"
+      ]
+    }
+  },
+  "WwwSiComExtractor": {
+    "domain": "www.si.com",
+    "supportedDomains": [
+      "www.si.com"
+    ],
+    "content": {
+      "selectors": [
+        [
+          "p",
+          ".marquee_large_2x",
+          ".component.image"
+        ]
+      ]
+    }
+  },
+  "WwwSlateComExtractor": {
+    "domain": "www.slate.com",
+    "supportedDomains": [
+      "www.slate.com"
+    ],
+    "content": {
+      "selectors": [
+        ".body"
+      ]
+    }
+  },
+  "TheAtlanticExtractor": {
+    "domain": "www.theatlantic.com",
+    "supportedDomains": [
+      "www.theatlantic.com"
+    ],
+    "content": {
+      "selectors": [
+        "article",
+        ".article-body"
+      ]
+    }
+  },
+  "WwwTheguardianComExtractor": {
+    "domain": "www.theguardian.com",
+    "supportedDomains": [
+      "www.theguardian.com"
+    ],
+    "content": {
+      "selectors": [
+        ".content__article-body"
+      ]
+    }
+  },
+  "WwwThepennyhoarderComExtractor": {
+    "domain": "www.thepennyhoarder.com",
+    "supportedDomains": [
+      "www.thepennyhoarder.com"
+    ],
+    "content": {
+      "selectors": [
+        [
+          ".post-img",
+          ".post-text"
+        ],
+        ".post-text"
+      ]
+    }
+  },
+  "WwwThepoliticalinsiderComExtractor": {
+    "domain": "www.thepoliticalinsider.com",
+    "supportedDomains": [
+      "www.thepoliticalinsider.com"
+    ],
+    "content": {
+      "selectors": [
+        "div#article-body"
+      ]
+    }
+  },
+  "WwwThevergeComExtractor": {
+    "domain": "www.theverge.com",
+    "supportedDomains": [
+      "www.polygon.com"
+    ],
+    "content": {
+      "selectors": [
+        [
+          ".c-entry-hero .e-image",
+          ".c-entry-intro",
+          ".c-entry-content"
+        ],
+        [
+          ".e-image--hero",
+          ".c-entry-content"
+        ],
+        ".l-wrapper .l-feature",
+        "div.c-entry-content"
+      ]
+    }
+  },
+  "WwwTmzComExtractor": {
+    "domain": "www.tmz.com",
+    "supportedDomains": [
+      "www.tmz.com"
+    ],
+    "content": {
+      "selectors": [
+        ".article-content",
+        ".all-post-body"
+      ]
+    }
+  },
+  "WwwTodayComExtractor": {
+    "domain": "www.today.com",
+    "supportedDomains": [
+      "www.today.com"
+    ],
+    "content": {
+      "selectors": [
+        ".entry-container"
+      ]
+    }
+  },
+  "WwwUsmagazineComExtractor": {
+    "domain": "www.usmagazine.com",
+    "supportedDomains": [
+      "www.usmagazine.com"
+    ],
+    "content": {
+      "selectors": [
+        "div.article-body-inner"
+      ]
+    }
+  },
+  "WwwVoxComExtractor": {
+    "domain": "www.vox.com",
+    "supportedDomains": [
+      "www.vox.com"
+    ],
+    "content": {
+      "selectors": [
+        [
+          "figure.e-image--hero",
+          ".c-entry-content"
+        ],
+        ".c-entry-content"
+      ]
+    }
+  },
+  "WwwWashingtonpostComExtractor": {
+    "domain": "www.washingtonpost.com",
+    "supportedDomains": [
+      "www.washingtonpost.com"
+    ],
+    "content": {
+      "selectors": [
+        ".article-body"
+      ]
+    }
+  },
+  "WwwWesternjournalismComExtractor": {
+    "domain": "www.westernjournalism.com",
+    "supportedDomains": [
+      "www.westernjournalism.com"
+    ],
+    "content": {
+      "selectors": [
+        "div.article-sharing.top + div"
+      ]
+    }
+  },
+  "WiredExtractor": {
+    "domain": "www.wired.com",
+    "supportedDomains": [
+      "www.wired.com"
+    ],
+    "content": {
+      "selectors": [
+        "article.content"
+      ]
+    }
+  },
+  "YahooExtractor": {
+    "domain": "www.yahoo.com",
+    "supportedDomains": [
+      "www.yahoo.com"
+    ],
+    "content": {
+      "selectors": [
+        ".content-canvas"
+      ]
+    }
+  },
+  "WwwYomiuriCoJpExtractor": {
+    "domain": "www.yomiuri.co.jp",
+    "supportedDomains": [
+      "www.yomiuri.co.jp"
+    ],
+    "content": {
+      "selectors": [
+        "div.p-main-contents"
+      ]
+    }
+  }
+}

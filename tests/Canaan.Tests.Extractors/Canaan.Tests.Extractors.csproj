@@ -13,7 +13,13 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\src\Base\Canaan.Base\Canaan.Base.csproj" />
+    <ProjectReference Include="..\..\src\Extractors\Canaan.Extractor.WebScraper\Canaan.Extractor.WebScraper.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="mercury-content-selectors.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
   </ItemGroup>
 
 </Project>

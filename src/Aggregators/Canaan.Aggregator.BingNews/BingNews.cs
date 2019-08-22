@@ -1,9 +1,10 @@
 ﻿using System;
+using System.Collections.Generic;
+using System.Linq;
 using System.Threading;
 using System.Threading.Tasks;
 
 using Microsoft.Azure.CognitiveServices.Search.NewsSearch;
-using Microsoft.Azure.CognitiveServices.Search.NewsSearch.Models;
 
 namespace Canaan.Aggregators
 {
@@ -13,7 +14,6 @@ namespace Canaan.Aggregators
         {
             ApiKey = apiKey ?? throw new ArgumentNullException("apiKey");
             Client = new NewsSearchClient(new ApiKeyServiceClientCredentials(ApiKey));
-            //Client.Endpoint = "https://newsalpha.cognitiveservices.azure.com/bing/v7.0";
             Initialized = true;
         }
 
@@ -25,10 +25,15 @@ namespace Canaan.Aggregators
 
         public NewsSearchClient Client { get; protected set; }
 
-        public async Task<bool> SearchAsync(string query)
-        {
+        public async Task<List<Article>> SearchAsync(string query, int count = 100)
+        { 
             var results = await Client.News.SearchAsync(query: query, cancellationToken: CancellationToken);
-            return true;
+            return results.Value.Select(r => new Article()
+            {
+                Id = r.Id,
+                Category = r.Category,
+
+            }).ToList();
         }
     }
 }
