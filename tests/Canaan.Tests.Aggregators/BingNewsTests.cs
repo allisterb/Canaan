@@ -10,8 +10,14 @@ namespace Canaan.Tests
 {
     public class BingNewsTests : BaseTests
     {
-      [Fact]
-      public void CanConstructClient()
+        public BingNewsTests() : base()
+        {
+            Api.SetLogger(new SerilogLogger());
+        }
+
+
+        [Fact]
+        public void CanConstructClient()
         {
             BingNews b = new BingNews();
             Assert.NotNull(b);

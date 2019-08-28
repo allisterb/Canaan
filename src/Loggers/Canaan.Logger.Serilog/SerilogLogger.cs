@@ -8,7 +8,7 @@ namespace Canaan
     {
         public SerilogLogger(string logFileName = null)
         {
-            Config = new LoggerConfiguration().WriteTo.RollingFile(logFileName ?? "Canaan.log");
+            Config = new LoggerConfiguration().WriteTo.File(logFileName ?? "Canaan.log");
             Logger = Config.CreateLogger();
         }
 

@@ -1,8 +1,9 @@
 ﻿<Project Sdk="Microsoft.NET.Sdk">
 
   <PropertyGroup>
-    <TargetFramework>netstandard2.0</TargetFramework>
+    <TargetFrameworks>netstandard2.0;net472</TargetFrameworks>
     <UserSecretsId>81dfcf5f-a19e-4cab-a546-9fa5b09927b8</UserSecretsId>
+    <RootNamespace>Canaan</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
