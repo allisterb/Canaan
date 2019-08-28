@@ -1,0 +1,3 @@
+[submodule "ext/News-API-csharp"]
+	path = ext/News-API-csharp
+	url = https://github.com/allisterb/News-API-csharp.git
