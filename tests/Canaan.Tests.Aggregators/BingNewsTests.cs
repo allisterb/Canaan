@@ -4,7 +4,7 @@ using System.Text;
 
 using Xunit;
 
-using Canaan.Aggregators;
+using Canaan;
 
 namespace Canaan.Tests
 {
@@ -23,6 +23,14 @@ namespace Canaan.Tests
             Assert.NotNull(b);
             Assert.True(b.Initialized);
             var q = b.SearchAsync("Donald Trump").Result;
+            Assert.NotEmpty(q);
+        }
+
+        [Fact]
+        public void CanPageThroughResults()
+        {
+            var agg = new BingNews();
+            var q = agg.SearchAsync("China", 4000).Result;
             Assert.NotEmpty(q);
         }
     }

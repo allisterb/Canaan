@@ -3,8 +3,6 @@ using System.Collections.Generic;
 
 using Xunit;
 
-using Canaan.Aggregators;
-
 namespace Canaan.Tests
 {
     public class NewsApiTests : BaseTests
@@ -13,7 +11,7 @@ namespace Canaan.Tests
         [Fact]
         public void CanConstructClient()
         {
-            var c = new Canaan.Aggregators.NewsApi();
+            var c = new NewsApi();
             Assert.NotNull(c);
             c.GetTopHeadlines("Donald Trump", "Business").Wait();
         }
@@ -36,7 +34,7 @@ namespace Canaan.Tests
             NewsApi agg = new NewsApi();
             Assert.NotNull(agg);
             var now = DateTime.Now;
-            var r = agg.SearchAsync("Donald Trump", now -TimeSpan.FromDays(30), now, 1000).Result;
+            var r = agg.SearchAsync("Donald Trump", now -TimeSpan.FromDays(30), now).Result;
         }
     }
 }

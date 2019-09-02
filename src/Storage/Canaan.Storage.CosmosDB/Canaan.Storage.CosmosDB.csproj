@@ -2,11 +2,14 @@
 
   <PropertyGroup>
     <TargetFramework>netstandard2.0</TargetFramework>
-    <RootNamespace>Canaan.Aggregators</RootNamespace>
+    <RootNamespace>Canaan</RootNamespace>
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\..\ext\News-API-csharp\NewsAPI\NewsAPI.csproj" />
+    <PackageReference Include="Microsoft.Azure.Cosmos" Version="3.1.1" />
+  </ItemGroup>
+
+  <ItemGroup>
     <ProjectReference Include="..\..\Base\Canaan.Base\Canaan.Base.csproj" />
   </ItemGroup>
 

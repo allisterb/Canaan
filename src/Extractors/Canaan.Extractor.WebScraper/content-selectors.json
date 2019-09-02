@@ -1550,7 +1550,8 @@
   "TheDailyBeast": {
 	"domain":"www.thedailybeast.com",
 	"supportedDomains": [
-		"www.thedailybeast.com"
+		"www.thedailybeast.com",
+		"thedailybeast.com"
 	],
     "content": {
       "selectors": [
@@ -1559,7 +1560,7 @@
     }
   },
   "USAToday": {
-  	"domain":"usatoday.com bodyContent___1eruQ",
+  	"domain":"usatoday.com",
 	"supportedDomains": [
 		"usatoday.com",
 		"www.usatoday.com"
@@ -1582,7 +1583,7 @@
       ]
     }
   },
-    "SlateCom": {
+  "SlateCom": {
     "domain": "www.slate.com",
     "supportedDomains": [
       "www.slate.com",
@@ -1591,6 +1592,17 @@
     "content": {
       "selectors": [
         "p[data-word-count]"
+      ]
+    }
+  },
+  "BreitbartCom": {
+    "domain": "www.breitbart.com",
+    "supportedDomains": [
+      "breitbart.com",
+    ],
+    "content": {
+      "selectors": [
+        "div.entry-content"
       ]
     }
   }

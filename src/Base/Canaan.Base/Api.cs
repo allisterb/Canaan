@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics;
+using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -17,6 +18,7 @@ namespace Canaan
             .AddJsonFile("config.json", optional: true)
             .AddUserSecrets("81dfcf5f-a19e-4cab-a546-9fa5b09927b8")
             .Build();
+            HttpClient.DefaultRequestHeaders.UserAgent.ParseAdd("Canaan/0.1");
         }
         public Api(CancellationToken ct)
         {
@@ -43,6 +45,8 @@ namespace Canaan
         public static Logger Logger { get; protected set; }
 
         public static CancellationTokenSource Cts { get; } = new CancellationTokenSource();
+
+        public static HttpClient HttpClient { get; } = new HttpClient();
 
         public static void SetLogger(Logger logger)
         {

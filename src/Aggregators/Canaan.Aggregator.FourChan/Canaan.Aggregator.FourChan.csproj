@@ -5,21 +5,14 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="CsQuery.NETStandard" Version="1.3.6.1" />
-    <PackageReference Include="Fizzler.Systems.HtmlAgilityPack" Version="1.2.0" />
-    <PackageReference Include="HtmlAgilityPack" Version="1.11.12" />
     <PackageReference Include="Microsoft.CSharp" Version="4.5.0" />
     <PackageReference Include="Newtonsoft.Json" Version="12.0.2" />
+    <PackageReference Include="System.Net.Http" Version="4.3.4" />
   </ItemGroup>
 
   <ItemGroup>
     <ProjectReference Include="..\..\Base\Canaan.Base\Canaan.Base.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="content-selectors.json">
-      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
-    </None>
+    <ProjectReference Include="..\..\Extractors\Canaan.Extractor.WebScraper\Canaan.Extractor.WebScraper.csproj" />
   </ItemGroup>
 
 </Project>

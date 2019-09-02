@@ -14,6 +14,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\src\Aggregators\Canaan.Aggregator.BingNews\Canaan.Aggregator.BingNews.csproj" />
+    <ProjectReference Include="..\..\src\Aggregators\Canaan.Aggregator.FourChan\Canaan.Aggregator.FourChan.csproj" />
     <ProjectReference Include="..\..\src\Aggregators\Canaan.Aggregator.NewsAPI\Canaan.Aggregator.NewsAPI.csproj" />
     <ProjectReference Include="..\..\src\Loggers\Canaan.Logger.Serilog\Canaan.Logger.Serilog.csproj" />
     <ProjectReference Include="..\Canaan.Tests.Base\Canaan.Tests.Base.csproj" />

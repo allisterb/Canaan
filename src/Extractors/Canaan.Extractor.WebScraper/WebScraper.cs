@@ -2,17 +2,17 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
-using System.Net;
-using System.Net.Http;
 using System.Threading;
 using System.Threading.Tasks;
 
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
+
 using HtmlAgilityPack;
 using Fizzler.Systems.HtmlAgilityPack;
+using CsQuery;
 
-namespace Canaan.Extractors
+namespace Canaan
 {
     public class WebScraper : Api
     {
@@ -21,11 +21,14 @@ namespace Canaan.Extractors
             ParseMercuryContentSelectors();
         }
 
-        public static Dictionary<string, string[]> ContentSelectors = new Dictionary<string, string[]>();
+        public static Dictionary<string, string[]> ContentSelectors { get; } = new Dictionary<string, string[]>();
+
+        public static Dictionary<string, Dictionary<string, Func<Article, Article>>> ContentTransforms { get; } =
+            new Dictionary<string, Dictionary<string, Func<Article, Article>>>();
 
         public static List<Article> GetArticlesFullTextFromUrl(List<Article> articles)
         {
-            HttpClient client = new HttpClient();
+      
             Parallel.For(0, articles.Count, (i) =>
             {
                 Uri u = articles[i].Uri;
@@ -34,7 +37,7 @@ namespace Canaan.Extractors
                     Error("No content selectors present for article with url {0}.", u.ToString());
                     return;
                 }
-                string c = client.GetStringAsync(u).Result;
+                string c = HttpClient.GetStringAsync(u).Result;
                 var html = new HtmlDocument();
                 html.LoadHtml(c);
                 var selectors = ContentSelectors[u.Host];
@@ -48,9 +51,21 @@ namespace Canaan.Extractors
             });
             return articles;
         }
+
+        public static Dictionary<Uri, Dictionary<string, object>> ExtractLinksFromHtmlFrag(string html)
+        {
+            CQ dom = html;
+            var links = dom["a"];
+            if (links != null & links.Count() > 0)
+            {
+                links = null;
+            }
+            return null;
+        }
+
         private static void ParseMercuryContentSelectors()
         {
-            var o = JObject.Parse(File.ReadAllText("mercury-content-selectors.json"))
+            var o = JObject.Parse(File.ReadAllText("content-selectors.json"))
                 .Properties()
                 .Select(p => p.Value as JObject);
             foreach (dynamic p in o)
@@ -81,6 +96,12 @@ namespace Canaan.Extractors
                     }
                 }
             }
+        }
+
+        
+        private static void CreateContentTransforms()
+        {
+            //ContentTransforms.Add()
         }
 
          
