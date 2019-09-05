@@ -23,9 +23,7 @@ namespace Canaan
             Client = new global::NewsAPI.NewsApiClient(apiKey);
             Initialized = true;
         }
-        #endregion
 
-        #region Constructors
         public NewsApi(string apiKey) : this(apiKey, Api.Cts.Token) { }
 
         public NewsApi() : this(Api.Config("NewsAPI")) { }

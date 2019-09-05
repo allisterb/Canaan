@@ -11,17 +11,17 @@ namespace Canaan
 {
     public class FourChan : Api
     {
-        public static async Task<List<Thread>> GetThreads(string board)
+        public static async Task<IEnumerable<NewsThread>> GetThreads(string board)
         {
             var json = await HttpClient.GetStringAsync($"http://a.4cdn.org/{board}/threads.json");
             var pages = JArray.Parse(json);
-            var threads = new List<Thread>();
+            var threads = new List<NewsThread>();
             foreach (dynamic page in pages)
             {
                 int p = 1;
                 foreach (dynamic thread in page.threads)
                 {
-                    var t = new Thread()
+                    var t = new NewsThread()
                     {
                         No = thread.no,
                         Id = (string)thread.no,
@@ -35,7 +35,7 @@ namespace Canaan
             return threads;
         }
 
-        public static async Task<IDictionary<Thread, List<Post>>> GetPosts(string board, IEnumerable<Thread> threads)
+        public static async Task<IDictionary<NewsThread, List<Post>>> GetPosts(string board, IEnumerable<NewsThread> threads)
         {
             Task<string>[] threadTasks = threads.Select(t => HttpClient.GetStringAsync($"http://a.4cdn.org/{board}/thread/{t.No}.json")).ToArray();
             try
@@ -57,20 +57,19 @@ namespace Canaan
             }
 
             var threadsJson = threadTasks.Where(t => t.IsCompleted).Select(t => t.Result);
-            var posts = new ConcurrentDictionary<Thread, List<Post>>();
+            var posts = new ConcurrentDictionary<NewsThread, List<Post>>();
             Parallel.ForEach(threadsJson, (j) =>
             {
                 dynamic o = JObject.Parse(j);
                 JArray threadPosts = o.posts;
                 dynamic subjectPost = threadPosts[0];
-                Thread thread = threads.Single(t => t.No == (long) subjectPost.no);
+                NewsThread thread = threads.Single(t => t.No == (long) subjectPost.no);
                 thread.Title = subjectPost.sub;
                 thread.Text = subjectPost.name;
                 posts.TryAdd(thread, new List<Post>());
                 int pos = 1;
                 foreach (dynamic post in threadPosts)
                 {
-                    WebScraper.ExtractLinksFromHtmlFrag((string) post.com);
                     posts[thread].Add(
                         new Post()
                         {
@@ -81,6 +80,7 @@ namespace Canaan
                             Author = post.name,
                             DatePublished = DateTimeOffset.FromUnixTimeSeconds((long) post.time).UtcDateTime,
                             Text = post.com,
+                            Links = WebScraper.ExtractLinksFromHtmlFrag((string)post.com)
                         });
                 }
             });

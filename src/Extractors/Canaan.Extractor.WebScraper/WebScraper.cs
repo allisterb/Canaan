@@ -52,15 +52,25 @@ namespace Canaan
             return articles;
         }
 
-        public static Dictionary<Uri, Dictionary<string, object>> ExtractLinksFromHtmlFrag(string html)
+        public static Link[] ExtractLinksFromHtmlFrag(string html)
         {
             CQ dom = html;
             var links = dom["a"];
-            if (links != null & links.Count() > 0)
+            if (links != null && links.Count() > 0)
             {
-                links = null;
+                return links.Select(l => new Link()
+                {
+                    Uri = l.HasAttribute("href") && Uri.TryCreate(l.GetAttribute("href"), UriKind.RelativeOrAbsolute, out Uri u) ? u : null,
+                    HtmlAttributes = l.Attributes.ToDictionary(a => a.Key, a => a.Value),
+                    InnerHtml = l.InnerHTML,
+                    InnerText = l.InnerText
+                }).ToArray();
+
             }
-            return null;
+            else
+            {
+                return Array.Empty<Link>();
+            }
         }
 
         private static void ParseMercuryContentSelectors()

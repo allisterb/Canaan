@@ -12,6 +12,7 @@ namespace Canaan
 {
     public abstract class Api
     {
+        #region Constructors
         static Api()
         {
             Configuration = new ConfigurationBuilder()
@@ -29,18 +30,12 @@ namespace Canaan
             CancellationToken = ct;
             Type = this.GetType();
         }
-
         public Api(): this(Cts.Token) {}
 
-        public bool Initialized { get; protected set; }
+        #endregion
 
-        public CancellationToken CancellationToken { get; protected set; }
-
+        #region Properties
         public static IConfigurationRoot Configuration { get; protected set; }
-
-        public Type Type { get; }
-
-        public static string Config(string i) => Api.Configuration[i];
 
         public static Logger Logger { get; protected set; }
 
@@ -48,6 +43,17 @@ namespace Canaan
 
         public static HttpClient HttpClient { get; } = new HttpClient();
 
+        public static string YY = DateTime.Now.Year.ToString().Substring(0, 2);
+
+        public bool Initialized { get; protected set; }
+
+        public CancellationToken CancellationToken { get; protected set; }
+
+        public Type Type { get; }
+
+        #endregion
+
+        #region Methods
         public static void SetLogger(Logger logger)
         {
             Logger = logger;
@@ -69,6 +75,8 @@ namespace Canaan
             }
         }
 
+        public static string Config(string i) => Api.Configuration[i];
+
         public static void Info(string messageTemplate, params object[] args) => Logger.Info(messageTemplate, args);
 
         public static void Debug(string messageTemplate, params object[] args) => Logger.Debug(messageTemplate, args);
@@ -76,10 +84,11 @@ namespace Canaan
         public static void Error(string messageTemplate, params object[] args) => Logger.Error(messageTemplate, args);
 
         public static void Error(Exception ex, string messageTemplate, params object[] args) => Logger.Error(ex, messageTemplate, args);
-    }
 
-    public class DevSecrets
-    {
-        public string NewsAPI { get; set; }
+        public void ThrowIfNotInitialized()
+        {
+            if (!this.Initialized) throw new ApiNotInitializedException(this);
+        }
+        #endregion
     }
 }
