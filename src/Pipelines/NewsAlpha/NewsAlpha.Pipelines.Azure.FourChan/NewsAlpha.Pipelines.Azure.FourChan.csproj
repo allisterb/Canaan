@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+  <PropertyGroup>
+    <TargetFramework>netcoreapp2.1</TargetFramework>
+    <AzureFunctionsVersion>v2</AzureFunctionsVersion>
+  </PropertyGroup>
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Azure.WebJobs.Extensions.CosmosDB" Version="3.0.4" />
+    <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.28" />
+    <PackageReference Include="morelinq" Version="3.2.0" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\..\..\Aggregators\Canaan.Aggregator.FourChan\Canaan.Aggregator.FourChan.csproj" />
+    <ProjectReference Include="..\..\..\Base\Canaan.Base\Canaan.Base.csproj" />
+    <ProjectReference Include="..\..\..\Loggers\Canaan.Logger.Serilog\Canaan.Logger.Serilog.csproj" />
+    <ProjectReference Include="..\..\..\Storage\Canaan.Storage.CosmosDB\Canaan.Storage.CosmosDB.csproj" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Update="host.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+    <None Update="local.settings.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+      <CopyToPublishDirectory>Never</CopyToPublishDirectory>
+    </None>
+  </ItemGroup>
+</Project>

@@ -6,7 +6,7 @@ using Xunit;
 
 using HtmlAgilityPack;
 using Fizzler.Systems.HtmlAgilityPack;
-using Canaan.Extractors;
+
 
 namespace Canaan.Tests
 {

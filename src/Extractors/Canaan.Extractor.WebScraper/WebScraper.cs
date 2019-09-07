@@ -16,10 +16,7 @@ namespace Canaan
 {
     public class WebScraper : Api
     {
-        static WebScraper()
-        {
-            ParseMercuryContentSelectors();
-        }
+        static WebScraper() {}
 
         public static Dictionary<string, string[]> ContentSelectors { get; } = new Dictionary<string, string[]>();
 
@@ -79,9 +76,9 @@ namespace Canaan
             return dom.Text();
         }
 
-        private static void ParseMercuryContentSelectors()
+        public static void LoadMercuryContentSelectors(string path)
         {
-            var o = JObject.Parse(File.ReadAllText("content-selectors.json"))
+            var o = JObject.Parse(File.ReadAllText(path))
                 .Properties()
                 .Select(p => p.Value as JObject);
             foreach (dynamic p in o)

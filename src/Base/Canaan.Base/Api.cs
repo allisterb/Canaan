@@ -15,10 +15,25 @@ namespace Canaan
         #region Constructors
         static Api()
         {
-            Configuration = new ConfigurationBuilder()
-            .AddJsonFile("config.json", optional: true)
-            .AddUserSecrets("81dfcf5f-a19e-4cab-a546-9fa5b09927b8")
-            .Build();
+            if (Environment.GetEnvironmentVariable("CANAAN_PRODUCTION") != string.Empty)
+            {
+                Configuration = new ConfigurationBuilder()
+                    .AddEnvironmentVariables()
+                    .Build();
+            }
+            else
+            {
+                Configuration = new ConfigurationBuilder()
+                    .AddEnvironmentVariables()
+                    .Build();
+                /*
+                Configuration = new ConfigurationBuilder()
+                .AddJsonFile("config.json", optional: true)
+                .AddUserSecrets("81dfcf5f-a19e-4cab-a546-9fa5b09927b8")
+                .Build();
+                */
+            }
+
             HttpClient.DefaultRequestHeaders.UserAgent.ParseAdd("Canaan/0.1");
         }
         public Api(CancellationToken ct)
@@ -46,6 +61,8 @@ namespace Canaan
         public static string YY = DateTime.Now.Year.ToString().Substring(2, 2);
 
         public bool Initialized { get; protected set; }
+
+        public static bool IsAzureFunction { get; set; }
 
         public CancellationToken CancellationToken { get; protected set; }
 
@@ -75,7 +92,19 @@ namespace Canaan
             }
         }
 
-        public static string Config(string i) => Api.Configuration[i];
+        public static string Config(string i)
+        {
+            if (Environment.GetEnvironmentVariable("CANAAN_PRODUCTION") != string.Empty || IsAzureFunction)
+            {
+                i = i.Replace(":", "_");
+                return Api.Configuration[i];
+            }
+            else
+            {
+                return Api.Configuration[i];
+            }
+            
+        }
 
         public static void Info(string messageTemplate, params object[] args) => Logger.Info(messageTemplate, args);
 

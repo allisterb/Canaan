@@ -7,7 +7,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\..\Loggers\Canaan.Logger.Serilog\Canaan.Logger.Serilog.csproj" />
-    <ProjectReference Include="..\FourChanPol\NewsAlpha.Pipeline.Azure.FourChan.csproj" />
+    <ProjectReference Include="..\NewsAlpha.Pipelines.Azure.FourChan\NewsAlpha.Pipelines.Azure.FourChan.csproj" />
   </ItemGroup>
 
 </Project>

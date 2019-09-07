@@ -26,6 +26,7 @@ namespace Canaan
                     MaxRetryWaitTimeOnRateLimitedRequests = TimeSpan.FromSeconds(30),
                     ConsistencyLevel = ConsistencyLevel.Session});
             DatabaseId = databaseId;
+            Info("Created client for CosmosDB database {0} at {1}.", DatabaseId, Client.Endpoint);
             Initialized = true;
         }
         

@@ -6,11 +6,19 @@ namespace Canaan
 {
     public class SerilogLogger : Logger
     {
-        public SerilogLogger(string logFileName = null)
+        public SerilogLogger(string logFileName)
         {
+
             Config = new LoggerConfiguration()
                 .WriteTo.Console()
                 .WriteTo.File(logFileName ?? "Canaan.log");
+            Logger = Config.CreateLogger();
+        }
+
+        public SerilogLogger()
+        {
+            Config = new LoggerConfiguration()
+                .WriteTo.Trace(Serilog.Events.LogEventLevel.Information);
             Logger = Config.CreateLogger();
         }
 
