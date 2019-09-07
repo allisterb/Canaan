@@ -1,14 +1,16 @@
 ﻿using System;
 using Serilog;
-using Serilog.Core;
-
+using SerilogTimings;
+using SerilogTimings.Extensions;
 namespace Canaan
 {
     public class SerilogLogger : Logger
     {
         public SerilogLogger(string logFileName = null)
         {
-            Config = new LoggerConfiguration().WriteTo.File(logFileName ?? "Canaan.log");
+            Config = new LoggerConfiguration()
+                .WriteTo.Console()
+                .WriteTo.File(logFileName ?? "Canaan.log");
             Logger = Config.CreateLogger();
         }
 
@@ -23,5 +25,42 @@ namespace Canaan
         public override void Error(string messageTemplate, params object[] args) => Logger.Error(messageTemplate, args);
 
         public override void Error(Exception ex, string messageTemplate, params object[] args) => Logger.Error(ex, messageTemplate, args);
+
+        public override Op Begin(string messageTemplate, params object[] args)
+        {
+            Info(messageTemplate + "...", args);
+            return new SerilogOp(this, Logger.BeginOperation(messageTemplate, args));
+        }
+    }
+
+    public class SerilogOp : Logger.Op
+    {
+        public SerilogOp(SerilogLogger logger, Operation op): base(logger)
+        {
+            Op = op;
+
+        }
+
+        public override void Cancel()
+        {
+            Op.Cancel();
+            isCancelled = true;
+        }
+
+        public override void Complete()
+        {
+            Op.Complete();
+        }
+
+        public override void Dispose()
+        {
+            if (!(isCancelled || isCompleted))
+            {
+                Op.Cancel();
+            }
+        }
+
+        protected Operation Op;
+        
     }
 }

@@ -29,8 +29,7 @@ namespace Canaan.Tests
                 User = "nobody",
                 Subject = "CanConnectToCosmosDb"
             };
-            Assert.True(db.CreateAsync("threads", "unittest", t).Result);
-
+            db.CreateAsync("threads", "unittest", t).Wait();
             var item = db.GetAsync<NewsThread>("threads", "unittest", id).Result;
             Assert.NotNull(item);
         }
@@ -51,10 +50,18 @@ namespace Canaan.Tests
                     User = "nobody",
                     Subject = "CanGetNewsThreads" + i.ToString()
                 };
-                Assert.True(db.CreateAsync("threads", "unittest", t).Result);
+                db.CreateAsync("threads", "unittest", t).Wait();
             }
             var items = db.GetAsync<NewsThread>("threads", "unittest", new[] {id + "0", id + "1", id + "2" }).Result;
             Assert.NotEmpty(items);
+        }
+
+        [Fact]
+        public void CanGetScalar()
+        {
+            var s = db.GetScalarAsync<int>("posts", "4ch.pol", "SELECT VALUE COUNT(1) FROM c", null).Result;
+            Assert.NotEqual(0, s);
+
         }
     }
 }

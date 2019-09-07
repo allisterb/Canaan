@@ -87,11 +87,11 @@ namespace Canaan
                 Position = i,
                 Aggregator = "NewsAPI",
                 Title = article.Title,
-                DatePublished = article.PublishedAt,
+                DatePublished = article.PublishedAt.GetValueOrDefault(),
                 Description = article.Description,
                 Author = article.Author,
                 Source = article.Source.Name,
-                Uri = new Uri(article.Url),
+                Url = new Uri(article.Url),
             });
         }
 

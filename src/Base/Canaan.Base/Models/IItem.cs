@@ -6,10 +6,10 @@ namespace Canaan
 {
     public interface IItem
     {
-        string Id { get; }
+        string IId { get; }
+
+        string Source { get; }
 
         DateTime Date { get; }
-  
-        string Source { get; }
     }
 }

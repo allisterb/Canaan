@@ -2,19 +2,35 @@
 using System.Collections.Generic;
 using System.Text;
 
+using System.Threading.Tasks;
+
 using Xunit;
 
 namespace Canaan.Tests
 {
-    public class FourChanTests
+    public class FourChanTests : BaseTests
     {
-        [Fact]
-        public void CanGetBoardThreads()
+        protected FourChan aggregator;
+
+        public FourChanTests()
         {
-            var threads = FourChan.GetThreads("pol").Result;
+            aggregator = new FourChan();
+        }
+
+        [Fact]
+        public void CanGetThreads()
+        {
+            var threads = aggregator.GetThreads("pol").Result;
             Assert.NotEmpty(threads);
-            var posts = FourChan.GetPosts("pol", threads).Result;
+            var posts = aggregator.GetPosts("pol", threads).Result;
             Assert.NotEmpty(posts);
+        }
+
+        [Fact]
+        public void CanGetAdditionalProperties()
+        {
+            var t = aggregator.GetThread("pol", "224988448").Result;
+            Assert.NotNull(t.Item1);
         }
 
     }

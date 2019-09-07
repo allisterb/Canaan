@@ -43,7 +43,7 @@ namespace Canaan
 
         public static HttpClient HttpClient { get; } = new HttpClient();
 
-        public static string YY = DateTime.Now.Year.ToString().Substring(0, 2);
+        public static string YY = DateTime.Now.Year.ToString().Substring(2, 2);
 
         public bool Initialized { get; protected set; }
 
@@ -84,6 +84,8 @@ namespace Canaan
         public static void Error(string messageTemplate, params object[] args) => Logger.Error(messageTemplate, args);
 
         public static void Error(Exception ex, string messageTemplate, params object[] args) => Logger.Error(ex, messageTemplate, args);
+
+        public static Logger.Op Begin(string messageTemplate, params object[] args) => Logger.Begin(messageTemplate, args);
 
         public void ThrowIfNotInitialized()
         {

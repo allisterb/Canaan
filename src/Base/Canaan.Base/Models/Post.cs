@@ -11,8 +11,8 @@ namespace Canaan
         [JsonProperty("id")]
         public string Id { get; set; }
 
-        [JsonProperty("pid")]
-        public string Pid => Id;
+        [JsonProperty("iid")]
+        public string IId => Source + "-" + Id;
 
         [JsonProperty("tid")]
         public string ThreadId { get; set; }
@@ -36,10 +36,10 @@ namespace Canaan
         public DateTime DatePublished { get; set; }
 
         [JsonProperty("replies")]
-        public string[] Replies { get; set;  }
+        public List<string> Replies { get; set; } = new List<string>();
 
-        [JsonProperty("reply_to")]
-        public string ReplyTo { get; set; }
+        [JsonProperty("replyto")]
+        public List<string> ReplyTo { get; set; } = new List<string>();
 
         [JsonProperty("links")]
         public Link[] Links { get; set; }

@@ -15,7 +15,6 @@ namespace Canaan.Tests
             Api.SetLogger(new SerilogLogger());
         }
 
-
         [Fact]
         public void CanConstructClient()
         {
@@ -30,7 +29,7 @@ namespace Canaan.Tests
         public void CanPageThroughResults()
         {
             var agg = new BingNews();
-            var q = agg.SearchAsync("China", 4000).Result;
+            var q = agg.SearchAsync("China", count: 361).Result;
             Assert.NotEmpty(q);
         }
     }

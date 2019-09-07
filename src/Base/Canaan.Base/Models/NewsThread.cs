@@ -11,8 +11,8 @@ namespace Canaan
         [JsonProperty("id")]
         public string Id { get; set; }
 
-        [JsonProperty("tid")]
-        public string Tid => Id;
+        [JsonProperty("iid")]
+        public string IId => Source + "-" + Id;
 
         [JsonProperty("no")]
         public long No { get; set; }
@@ -31,9 +31,6 @@ namespace Canaan
 
         [JsonProperty("source")]
         public string Source { get; set; }
-
-        [JsonProperty("forum")]
-        public string Forum { get; set; }
 
         [JsonProperty("date_published")]
         public DateTime DatePublished { get; set; }

@@ -31,7 +31,7 @@ namespace Canaan
       
             Parallel.For(0, articles.Count, (i) =>
             {
-                Uri u = articles[i].Uri;
+                Uri u = articles[i].Url;
                 if (!ContentSelectors.ContainsKey(u.Host))
                 {
                     Error("No content selectors present for article with url {0}.", u.ToString());
@@ -71,6 +71,12 @@ namespace Canaan
             {
                 return Array.Empty<Link>();
             }
+        }
+
+        public static string ExtractTextFromHtmlFrag(string html)
+        {
+            CQ dom = html;
+            return dom.Text();
         }
 
         private static void ParseMercuryContentSelectors()
