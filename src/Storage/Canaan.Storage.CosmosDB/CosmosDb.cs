@@ -105,13 +105,6 @@ namespace Canaan
                 {
                     PartitionKey = new PartitionKey(partitionKey)
                 });
-            /*
-            var resultr = await r.ReadNextAsync();
-            using (var s = new StreamReader(resultr.Content))
-            {
-                return await s.ReadToEndAsync();
-            }
-            */
             var result = await r.ReadNextAsync();
             return result.Resource.Single();
         }

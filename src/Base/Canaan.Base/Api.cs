@@ -15,7 +15,7 @@ namespace Canaan
         #region Constructors
         static Api()
         {
-            if (Environment.GetEnvironmentVariable("CANAAN_PRODUCTION") != string.Empty)
+            if (!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("CANAAN_PRODUCTION")))
             {
                 Configuration = new ConfigurationBuilder()
                     .AddEnvironmentVariables()
@@ -24,14 +24,9 @@ namespace Canaan
             else
             {
                 Configuration = new ConfigurationBuilder()
-                    .AddEnvironmentVariables()
-                    .Build();
-                /*
-                Configuration = new ConfigurationBuilder()
                 .AddJsonFile("config.json", optional: true)
                 .AddUserSecrets("81dfcf5f-a19e-4cab-a546-9fa5b09927b8")
                 .Build();
-                */
             }
 
             HttpClient.DefaultRequestHeaders.UserAgent.ParseAdd("Canaan/0.1");
@@ -94,7 +89,7 @@ namespace Canaan
 
         public static string Config(string i)
         {
-            if (Environment.GetEnvironmentVariable("CANAAN_PRODUCTION") != string.Empty || IsAzureFunction)
+            if (!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("CANAAN_PRODUCTION")) || IsAzureFunction)
             {
                 i = i.Replace(":", "_");
                 return Api.Configuration[i];

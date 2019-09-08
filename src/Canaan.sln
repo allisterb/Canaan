@@ -64,9 +64,17 @@ Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Pipelines", "Pipelines", "{
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NewsAlpha", "NewsAlpha", "{4D9A5C60-BFE8-4C67-9989-E3D75C447D3D}"
 EndProject
-Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsAlpha.CLI", "Pipelines\NewsAlpha\NewsAlpha.ConsoleDriver\NewsAlpha.CLI.csproj", "{11A62771-8EFC-4EC7-8E0E-2D31B57E52F3}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsAlpha.CLI", "Pipelines\NewsAlpha\NewsAlpha.CLI\NewsAlpha.CLI.csproj", "{11A62771-8EFC-4EC7-8E0E-2D31B57E52F3}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsAlpha.Pipelines.Azure.FourChan", "Pipelines\NewsAlpha\NewsAlpha.Pipelines.Azure.FourChan\NewsAlpha.Pipelines.Azure.FourChan.csproj", "{D984C8C7-6860-4209-A796-2B76D06B4ED4}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsAlpha.Pipelines.Azure.FourChan", "Pipelines\NewsAlpha\NewsAlpha.Pipelines.Azure.FourChan\NewsAlpha.Pipelines.Azure.FourChan.csproj", "{D984C8C7-6860-4209-A796-2B76D06B4ED4}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "LexicalTaggers", "LexicalTaggers", "{C7DA13FA-4B61-4479-9EA8-A350BF420B42}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Canaan.LexicalTagger.HateWords", "Analyzers\LexicalTaggers\Canaan.LexicalTagger.HateWords\Canaan.LexicalTagger.HateWords.csproj", "{EAB7C78A-2F9A-4093-B806-6EE3CC488EA8}"
+EndProject
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsAlpha.Pipelines.Azure.BingNews", "Pipelines\NewsAlpha\NewsAlpha.Pipelines.Azure.BingNews\NewsAlpha.Pipelines.Azure.BingNews.csproj", "{798ACA45-3BD1-489F-A912-77014F103AD6}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Canaan.Aggregator.Gab", "Aggregators\Canaan.Aggregator.Gab\Canaan.Aggregator.Gab.csproj", "{D18A34BD-D295-4CBE-8DEF-AC4398241D71}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -150,6 +158,18 @@ Global
 		{D984C8C7-6860-4209-A796-2B76D06B4ED4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{D984C8C7-6860-4209-A796-2B76D06B4ED4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{D984C8C7-6860-4209-A796-2B76D06B4ED4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{EAB7C78A-2F9A-4093-B806-6EE3CC488EA8}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{EAB7C78A-2F9A-4093-B806-6EE3CC488EA8}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{EAB7C78A-2F9A-4093-B806-6EE3CC488EA8}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{EAB7C78A-2F9A-4093-B806-6EE3CC488EA8}.Release|Any CPU.Build.0 = Release|Any CPU
+		{798ACA45-3BD1-489F-A912-77014F103AD6}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{798ACA45-3BD1-489F-A912-77014F103AD6}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{798ACA45-3BD1-489F-A912-77014F103AD6}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{798ACA45-3BD1-489F-A912-77014F103AD6}.Release|Any CPU.Build.0 = Release|Any CPU
+		{D18A34BD-D295-4CBE-8DEF-AC4398241D71}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{D18A34BD-D295-4CBE-8DEF-AC4398241D71}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{D18A34BD-D295-4CBE-8DEF-AC4398241D71}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{D18A34BD-D295-4CBE-8DEF-AC4398241D71}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -176,6 +196,10 @@ Global
 		{4D9A5C60-BFE8-4C67-9989-E3D75C447D3D} = {E5174E9E-3815-48D7-AB82-A386D47CF710}
 		{11A62771-8EFC-4EC7-8E0E-2D31B57E52F3} = {4D9A5C60-BFE8-4C67-9989-E3D75C447D3D}
 		{D984C8C7-6860-4209-A796-2B76D06B4ED4} = {4D9A5C60-BFE8-4C67-9989-E3D75C447D3D}
+		{C7DA13FA-4B61-4479-9EA8-A350BF420B42} = {6991FE18-425A-4764-9C89-B143BF19B3A6}
+		{EAB7C78A-2F9A-4093-B806-6EE3CC488EA8} = {C7DA13FA-4B61-4479-9EA8-A350BF420B42}
+		{798ACA45-3BD1-489F-A912-77014F103AD6} = {4D9A5C60-BFE8-4C67-9989-E3D75C447D3D}
+		{D18A34BD-D295-4CBE-8DEF-AC4398241D71} = {F701CACF-59E9-45C1-81EE-206CD2C63B07}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9DC3F2E7-0877-4A12-B952-008477D8DEB6}

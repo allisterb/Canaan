@@ -1,3 +1,6 @@
 [submodule "ext/News-API-csharp"]
 	path = ext/News-API-csharp
 	url = https://github.com/allisterb/News-API-csharp.git
+[submodule "ext/Serilog.Sinks.AzureWebJobsTraceWriter"]
+	path = ext/Serilog.Sinks.AzureWebJobsTraceWriter
+	url = https://github.com/allisterb/Serilog.Sinks.AzureWebJobsTraceWriter.git

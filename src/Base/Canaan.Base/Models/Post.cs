@@ -49,5 +49,8 @@ namespace Canaan
 
         [JsonIgnore]
         public DateTime Date => DatePublished;
+
+        [JsonProperty("identity_hate")]
+        public bool HasIdentityHate { get; set; }
     }
 }

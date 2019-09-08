@@ -11,6 +11,7 @@
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\Analyzers\LexicalTaggers\Canaan.LexicalTagger.HateWords\Canaan.LexicalTagger.HateWords.csproj" />
     <ProjectReference Include="..\..\Base\Canaan.Base\Canaan.Base.csproj" />
     <ProjectReference Include="..\..\Extractors\Canaan.Extractor.WebScraper\Canaan.Extractor.WebScraper.csproj" />
   </ItemGroup>

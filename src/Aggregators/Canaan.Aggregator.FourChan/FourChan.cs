@@ -145,6 +145,12 @@ namespace Canaan
                     }
 
                 }
+                
+                foreach(var p in posts.Values.SelectMany(x => x))
+                {
+                    p.HasIdentityHate = HateWords.IdentityHateWords.Any(w => p.Text.Contains(w));
+                }
+
                 op.Complete();
                 return posts;
             }

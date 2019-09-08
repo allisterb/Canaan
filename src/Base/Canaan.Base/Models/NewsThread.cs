@@ -29,6 +29,9 @@ namespace Canaan
         [JsonProperty("text")]
         public string Text { get; set; }
 
+        [JsonProperty("links")]
+        public Link[] Links { get; set; }
+
         [JsonProperty("source")]
         public string Source { get; set; }
 

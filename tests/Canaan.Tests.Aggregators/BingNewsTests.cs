@@ -12,7 +12,7 @@ namespace Canaan.Tests
     {
         public BingNewsTests() : base()
         {
-            Api.SetLogger(new SerilogLogger());
+            Api.SetDefaultLoggerIfNone();
         }
 
         [Fact]

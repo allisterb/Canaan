@@ -6,7 +6,7 @@ namespace Canaan
 {
     public class SerilogLogger : Logger
     {
-        public SerilogLogger(string logFileName)
+        public SerilogLogger(string logFileName = null)
         {
 
             Config = new LoggerConfiguration()
@@ -15,11 +15,9 @@ namespace Canaan
             Logger = Config.CreateLogger();
         }
 
-        public SerilogLogger()
+        public SerilogLogger(Serilog.Core.Logger logger)
         {
-            Config = new LoggerConfiguration()
-                .WriteTo.Trace(Serilog.Events.LogEventLevel.Information);
-            Logger = Config.CreateLogger();
+            Logger = logger;
         }
 
         public LoggerConfiguration Config { get; protected set; }
