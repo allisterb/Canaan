@@ -17,7 +17,7 @@ namespace NewsAlpha
     public static class FourChanAzureFunctions
     {
         [FunctionName("Update"), ]
-        public static async Task Update([TimerTrigger("0 */15 * * * *")] TimerInfo myTimer, TraceWriter log)
+        public static async Task Update([TimerTrigger("0 */13 * * * *")] TimerInfo myTimer, TraceWriter log)
         {
             Serilog.Core.Logger logger = new LoggerConfiguration()
                      .WriteTo.Console(Serilog.Events.LogEventLevel.Debug)

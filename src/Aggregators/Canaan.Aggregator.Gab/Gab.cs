@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Diagnostics;
 using System.IO;
 using System.Linq;
 
@@ -14,9 +15,17 @@ namespace Canaan
 {
     public class Gab : Api
     {
+        public Gab() : base()
+        {
+            Initialized = true;
+        }
+
         public async Task<IEnumerable<Post>> GetUpdates(int listenTimeout)
         {
-            HttpClient.Timeout = TimeSpan.FromSeconds(listenTimeout);
+            if (HttpClient.Timeout != TimeSpan.FromSeconds(listenTimeout))
+            {
+                HttpClient.Timeout = TimeSpan.FromSeconds(listenTimeout);
+            }
             List<string> updates = new List<string>();
             List<Post> posts = new List<Post>();
             var requestUri = "https://gab.com/api/v1/streaming/public";
@@ -24,6 +33,8 @@ namespace Canaan
             {
                 using (var op = Begin("Listen to Gab live stream for {0} seconds", listenTimeout))
                 {
+                    Stopwatch sw = new Stopwatch();
+                    sw.Start();
                     var stream = await HttpClient.GetStreamAsync(requestUri);
                     using (var reader = new StreamReader(stream))
                     {
@@ -52,7 +63,7 @@ namespace Canaan
                             }
                             else
                             {
-                                break;
+                                continue;
                             }
                         }
                     }
@@ -84,6 +95,7 @@ namespace Canaan
                     DatePublished = (DateTime) props.First(p => p.Name == "created_at").Value,
                     Text = (string) props.First(p => p.Name == "content").Value,
                     User = (string) account.Properties().First(p => p.Name == "username").Value,
+                    Source = "gab"
                 };
                 posts.Add(post);
             }
