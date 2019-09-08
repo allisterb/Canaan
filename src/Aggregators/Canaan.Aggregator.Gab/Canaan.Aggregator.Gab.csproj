@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <ProjectReference Include="..\..\Base\Canaan.Base\Canaan.Base.csproj" />
+    <ProjectReference Include="..\..\Extractors\Canaan.Extractor.WebScraper\Canaan.Extractor.WebScraper.csproj" />
   </ItemGroup>
 
 </Project>

@@ -17,7 +17,7 @@ namespace Canaan.Tests
         [Fact]
         public void CanGetStream()
         {
-            Aggregator.GetUpdates(60).Wait();
+            Aggregator.GetUpdates(30).Wait();
             Assert.True(true);
         }
     }

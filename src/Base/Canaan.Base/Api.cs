@@ -15,7 +15,7 @@ namespace Canaan
         #region Constructors
         static Api()
         {
-            if (!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("CANAAN_PRODUCTION")))
+            if (!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("CANAAN_PRODUCTION")) || !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("FUNCTIONS_WORKER_RUNTIME")))
             {
                 Configuration = new ConfigurationBuilder()
                     .AddEnvironmentVariables()
@@ -89,7 +89,7 @@ namespace Canaan
 
         public static string Config(string i)
         {
-            if (!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("CANAAN_PRODUCTION")) || IsAzureFunction)
+            if (!string.IsNullOrEmpty(Environment.GetEnvironmentVariable("CANAAN_PRODUCTION")) || !string.IsNullOrEmpty(Environment.GetEnvironmentVariable("FUNCTIONS_WORKER_RUNTIME")) || IsAzureFunction)
             {
                 i = i.Replace(":", "_");
                 return Api.Configuration[i];
@@ -98,7 +98,6 @@ namespace Canaan
             {
                 return Api.Configuration[i];
             }
-            
         }
 
         public static void Info(string messageTemplate, params object[] args) => Logger.Info(messageTemplate, args);

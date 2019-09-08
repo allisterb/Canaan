@@ -1,7 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.IO;
-using System.Net.Sockets;
+using System.Linq;
 
 using System.Text;
 using System.Threading;
@@ -74,15 +74,25 @@ namespace Canaan
 
             foreach (var s in updates)
             {
-                dynamic o = JObject.Parse(s);
-                dynamic data = o.data;
+                var props = JObject.Parse(s.Replace("data: ", "")).Properties();
+                var account = (JObject)props.First(p => p.Name == "account").Value;
+            
                 var post = new Post()
                 {
-                    Id = data.id + "-" + YY,
-                    DatePublished = DateTime.Parse(data.created_at)
+                    No = (long) props.First(p => p.Name == "id").Value,
+                    Id = (string) props.First(p => p.Name == "id").Value + "-" + YY,
+                    DatePublished = (DateTime) props.First(p => p.Name == "created_at").Value,
+                    Text = (string) props.First(p => p.Name == "content").Value,
+                    User = (string) account.Properties().First(p => p.Name == "username").Value,
                 };
-
                 posts.Add(post);
+            }
+
+            foreach(var post in posts)
+            {
+                var html = post.Text;
+                post.Text = WebScraper.ExtractTextFromHtmlFrag(html);
+                post.Links = WebScraper.ExtractLinksFromHtmlFrag(html);
             }
             return posts;
         }
