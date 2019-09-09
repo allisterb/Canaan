@@ -108,14 +108,15 @@ namespace Canaan
             var result = await r.ReadNextAsync();
             return result.Resource.Single();
         }
-        public async Task CreateAsync<T>(string containerId, string partitionKey, T item) where T : IItem
+
+        public async Task CreateAsync<T>(string containerId, string partitionKey, T item) 
         {
             ThrowIfNotInitialized();            
             var container = Client.GetContainer(DatabaseId, containerId);
             await container.CreateItemAsync(item, partitionKey: new PartitionKey(partitionKey), cancellationToken: CancellationToken);
         }
 
-        public async Task UpsertAsync<T>(string containerId, string partitionKey, T item) where T : IItem
+        public async Task UpsertAsync<T>(string containerId, string partitionKey, T item)
         {
             ThrowIfNotInitialized();
             var container = Client.GetContainer(DatabaseId, containerId);

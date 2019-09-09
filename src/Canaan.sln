@@ -78,6 +78,14 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Canaan.Aggregator.Gab", "Ag
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsAlpha.Pipelines.Azure.Gab", "Pipelines\NewsAlpha\NewsAlpha.Pipelines.Azure.Gab\NewsAlpha.Pipelines.Azure.Gab.csproj", "{595E5989-9605-43BC-AC7A-60DDD294EC40}"
 EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ComputerVision", "ComputerVision", "{3A7E9DDF-F5F4-415C-97B2-019BF06E651F}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Canaan.ComputerVision.AzureComputerVision", "Analyzers\ComputerVision\Canaan.ComputerVision.AzureComputerVision\Canaan.ComputerVision.AzureComputerVision.csproj", "{E819F7E5-7EFC-4D81-9269-DD18ECA0C0F1}"
+EndProject
+Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Text", "Text", "{7FB0AFDA-0538-4F47-9A26-7906F82BD551}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Canaan.NLP.AzureTextAnalytics", "Analyzers\NLP\Canaan.NLP.AzureTextAnalytics\Canaan.NLP.AzureTextAnalytics.csproj", "{C1674462-4B30-4E94-83EF-71E8054AB69D}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -176,6 +184,14 @@ Global
 		{595E5989-9605-43BC-AC7A-60DDD294EC40}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{595E5989-9605-43BC-AC7A-60DDD294EC40}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{595E5989-9605-43BC-AC7A-60DDD294EC40}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E819F7E5-7EFC-4D81-9269-DD18ECA0C0F1}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E819F7E5-7EFC-4D81-9269-DD18ECA0C0F1}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E819F7E5-7EFC-4D81-9269-DD18ECA0C0F1}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E819F7E5-7EFC-4D81-9269-DD18ECA0C0F1}.Release|Any CPU.Build.0 = Release|Any CPU
+		{C1674462-4B30-4E94-83EF-71E8054AB69D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{C1674462-4B30-4E94-83EF-71E8054AB69D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{C1674462-4B30-4E94-83EF-71E8054AB69D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{C1674462-4B30-4E94-83EF-71E8054AB69D}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE
@@ -207,6 +223,10 @@ Global
 		{798ACA45-3BD1-489F-A912-77014F103AD6} = {4D9A5C60-BFE8-4C67-9989-E3D75C447D3D}
 		{D18A34BD-D295-4CBE-8DEF-AC4398241D71} = {F701CACF-59E9-45C1-81EE-206CD2C63B07}
 		{595E5989-9605-43BC-AC7A-60DDD294EC40} = {4D9A5C60-BFE8-4C67-9989-E3D75C447D3D}
+		{3A7E9DDF-F5F4-415C-97B2-019BF06E651F} = {6991FE18-425A-4764-9C89-B143BF19B3A6}
+		{E819F7E5-7EFC-4D81-9269-DD18ECA0C0F1} = {3A7E9DDF-F5F4-415C-97B2-019BF06E651F}
+		{7FB0AFDA-0538-4F47-9A26-7906F82BD551} = {6991FE18-425A-4764-9C89-B143BF19B3A6}
+		{C1674462-4B30-4E94-83EF-71E8054AB69D} = {7FB0AFDA-0538-4F47-9A26-7906F82BD551}
 	EndGlobalSection
 	GlobalSection(ExtensibilityGlobals) = postSolution
 		SolutionGuid = {9DC3F2E7-0877-4A12-B952-008477D8DEB6}

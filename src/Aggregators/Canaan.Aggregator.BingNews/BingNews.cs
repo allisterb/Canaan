@@ -54,7 +54,7 @@ namespace Canaan
                 {
                     sw.Restart();
                     var r = await Client.News.SearchAsync(query: query, freshness: freshness,
-                        sortBy: sortByDate ? "Date" : null, count: count, offset: (page - 1) * 100,  
+                        sortBy: sortByDate ? "Date" : null, count: 100, offset: (page - 1) * 100,  
                         cancellationToken: CancellationToken);
                     sw.Stop();
                     if (sw.ElapsedMilliseconds < 330)
@@ -64,8 +64,14 @@ namespace Canaan
                     articles.AddRange(GetArticlesFromResult(r));
                 }
             }
-            articles.ForEach(a => a.Topics.Add(query));
-            return articles;
+            
+            var unique_articles =
+                (from a in articles
+                 group a by a.Id into g
+                 select g.First()).ToList();
+                
+            unique_articles.ForEach(a => a.Topics.Add(query));
+            return unique_articles;
         }
 
         protected IEnumerable<Article> GetArticlesFromResult(News result)
@@ -73,7 +79,7 @@ namespace Canaan
             ThrowIfNotInitialized();
             return result.Value.Select((r, index) => new Article()
             {
-                Id = r.Url.ToString() + "-" + YY,
+                Id = CalculateMD5Hash(r.Url),
                 Position = index,
                 Aggregator = "BingNews",
                 Category = r.Category,
@@ -82,6 +88,7 @@ namespace Canaan
                 DatePublished = DateTime.Parse(r.DatePublished),
                 Description = r.Description,
                 Source = r.Provider.First().Name,
+                ImageUrl = r.Image?.ContentUrl,
             });
         }
         #endregion

@@ -6,13 +6,13 @@ using Newtonsoft.Json;
 
 namespace Canaan
 {
-    public class Article
+    public class Article : IItem
     {
         [JsonProperty("id")]
         public string Id { get; set; }
 
         [JsonProperty("iid")]
-        public string IId => Source + "-" + Id;
+        public string IId => Id + "-" + Year;
 
         [JsonProperty("pos")]
         public int Position { get; set; }
@@ -31,6 +31,9 @@ namespace Canaan
 
         [JsonProperty("date_published")]
         public DateTime DatePublished { get; set; }
+
+        [JsonProperty("year")]
+        public string Year => DateTime.Now.Year.ToString();
 
         [JsonProperty("url")]
         public Uri Url { get; set; }
@@ -52,5 +55,14 @@ namespace Canaan
 
         [JsonProperty("wordcount")]
         public int? WordCount { get; set; }
+
+        [JsonProperty("image_url")]
+        public string ImageUrl { get; set; }
+
+        [JsonProperty("title_sentiment")]
+        public double? TitleSentiment { get; set; }
+
+        [JsonIgnore]
+        public DateTime Date => DatePublished;
     }
 }

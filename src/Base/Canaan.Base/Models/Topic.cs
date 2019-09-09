@@ -10,5 +10,11 @@ namespace Canaan
     {
         [JsonProperty("name")]
         public string Name { get; set; }
+
+        [JsonProperty("year")]
+        public string Year { get; set; }
+
+        [JsonProperty("id")]
+        public string Id => Name;
     }
 }

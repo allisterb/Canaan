@@ -3,22 +3,32 @@
   <PropertyGroup>
     <OutputType>Exe</OutputType>
     <TargetFramework>netcoreapp2.1</TargetFramework>
+    <AssemblyVersion>0.1.0.0</AssemblyVersion>
+    <PackageId>NewsAlpha</PackageId>
+    <Version>0.1.0</Version>
+    <Authors>Allister Beharry</Authors>
+    <Company>Allister Beharry</Company>
+    <Product>NewsAlpha</Product>
+    <Description>NewsAlpha CLI</Description>
+    <Copyright>Copyright (c) 2019 Allister Beharry</Copyright>
   </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="NewsAlpha-CLI.log" />
+  </ItemGroup>
 
   <ItemGroup>
     <PackageReference Include="Colorful.Console" Version="1.2.9" />
     <PackageReference Include="CommandLineParser" Version="2.6.0" />
+    <PackageReference Include="ConsoleTables" Version="2.3.0" />
+    <PackageReference Include="Figgle" Version="0.3.0" />
+    <PackageReference Include="Microsoft.Azure.Search" Version="10.0.0" />
   </ItemGroup>
 
   <ItemGroup>
+    <ProjectReference Include="..\..\..\Base\Canaan.Base\Canaan.Base.csproj" />
     <ProjectReference Include="..\..\..\Loggers\Canaan.Logger.Serilog\Canaan.Logger.Serilog.csproj" />
-    <ProjectReference Include="..\NewsAlpha.Pipelines.Azure.FourChan\NewsAlpha.Pipelines.Azure.FourChan.csproj" />
-  </ItemGroup>
-
-  <ItemGroup>
-    <None Update="chunky.flf">
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </None>
+    <ProjectReference Include="..\NewsAlpha.Pipelines.Azure.BingNews\NewsAlpha.Pipelines.Azure.BingNews.csproj" />
   </ItemGroup>
 
 </Project>

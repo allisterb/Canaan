@@ -96,6 +96,7 @@ namespace Canaan
                     Text = (string) props.First(p => p.Name == "content").Value,
                     User = (string) account.Properties().First(p => p.Name == "username").Value,
                     Source = "gab"
+
                 };
                 posts.Add(post);
             }
@@ -105,6 +106,7 @@ namespace Canaan
                 var html = post.Text;
                 post.Text = WebScraper.ExtractTextFromHtmlFrag(html);
                 post.Links = WebScraper.ExtractLinksFromHtmlFrag(html);
+                post.HasIdentityHate = HateWords.IdentityHateWords.Any(w => post.Text.Contains(w));
             }
             return posts;
         }

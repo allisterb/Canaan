@@ -5,10 +5,14 @@
   </PropertyGroup>
   <ItemGroup>
     <PackageReference Include="Microsoft.NET.Sdk.Functions" Version="1.0.28" />
+    <PackageReference Include="morelinq" Version="3.2.0" />
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Aggregators\Canaan.Aggregator.BingNews\Canaan.Aggregator.BingNews.csproj" />
+    <ProjectReference Include="..\..\..\Analyzers\ComputerVision\Canaan.ComputerVision.AzureComputerVision\Canaan.ComputerVision.AzureComputerVision.csproj" />
+    <ProjectReference Include="..\..\..\Analyzers\NLP\Canaan.NLP.AzureTextAnalytics\Canaan.NLP.AzureTextAnalytics.csproj" />
     <ProjectReference Include="..\..\..\Base\Canaan.Base\Canaan.Base.csproj" />
+    <ProjectReference Include="..\..\..\Extractors\Canaan.Extractor.WebScraper\Canaan.Extractor.WebScraper.csproj" />
     <ProjectReference Include="..\..\..\Loggers\Canaan.Logger.Serilog\Canaan.Logger.Serilog.csproj" />
     <ProjectReference Include="..\..\..\Storage\Canaan.Storage.CosmosDB\Canaan.Storage.CosmosDB.csproj" />
   </ItemGroup>

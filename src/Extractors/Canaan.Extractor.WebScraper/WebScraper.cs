@@ -76,6 +76,19 @@ namespace Canaan
             return dom.Text();
         }
 
+        public static async Task<byte[]> GetImageFromUrlAsync(string url)
+        {
+            try
+            {
+                return await HttpClient.GetByteArrayAsync(url);
+            }
+            catch(Exception e)
+            {
+                Error(e, "Error occurred reading URL {0}.", url);
+                return null;
+            }
+        }
+
         public static void LoadMercuryContentSelectors(string path)
         {
             var o = JObject.Parse(File.ReadAllText(path))
