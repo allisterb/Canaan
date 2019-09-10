@@ -1,2 +1,2 @@
 # NewsAlpha
-This directory contains source code for the NewsAlpha pipelines and CLI. NewsAlpha is a cloud-based social news analyzer built using the Canaan framework running on Microsoft Azure.
+This directory contains source code for the NewsAlpha pipelines and CLI. NewsAlpha is a cloud-based social news analyzer built using the Canaan framework running on Microsoft Azure. Pipelines are just high-level wirings of Canaan components; the code for each component used in NewsAlpha is located in the appropriate folder in the Canaan repository e.g the code for the 4Chan aggregator is here: https://github.com/allisterb/Canaan/tree/master/src/Aggregators/Canaan.Aggregator.FourChan
