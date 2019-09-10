@@ -25,6 +25,12 @@ namespace Canaan
                     .AddEnvironmentVariables()
                     .Build();
             }
+            else if (Assembly.GetEntryAssembly().GetName().Name == "NewsAlpha.CLI")
+            {
+                Configuration = new ConfigurationBuilder()
+                .AddJsonFile("config.json", optional: true)
+                .Build();
+            }
             else
             {
                 Configuration = new ConfigurationBuilder()
