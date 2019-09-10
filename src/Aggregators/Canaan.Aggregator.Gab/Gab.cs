@@ -20,6 +20,7 @@ namespace Canaan
             Initialized = true;
         }
 
+        public AzureLUIS intentService = new AzureLUIS();
         public async Task<IEnumerable<Post>> GetUpdates(int listenTimeout)
         {
             if (HttpClient.Timeout != TimeSpan.FromSeconds(listenTimeout))
@@ -99,15 +100,24 @@ namespace Canaan
 
                 };
                 posts.Add(post);
-            }
-
-            foreach(var post in posts)
+            }            
+            foreach (var post in posts)
             {
                 var html = post.Text;
                 post.Text = WebScraper.ExtractTextFromHtmlFrag(html);
                 post.Links = WebScraper.ExtractLinksFromHtmlFrag(html);
+                post.Text = WebScraper.RemoveUrlsFromText(post.Text);
                 post.HasIdentityHate = HateWords.IdentityHateWords.Any(w => post.Text.Contains(w));
-            }
+                await intentService.GetPredictionForPost(post);
+                if (post.Entities.Count > 0)
+                {
+                    Info("Detected {0} entities in post {1}.", post.Entities.Count, post.Id);
+                }
+                if (post.ThreatIntent > 0.0)
+                {
+                    Info("Detected threat intent {0:0.00} in post {1}.", post.ThreatIntent, post.Id);
+                }
+            }   
             return posts;
         }
     }

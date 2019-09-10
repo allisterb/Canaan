@@ -2,7 +2,7 @@
   "profiles": {
     "NewsAlpha.CLI": {
       "commandName": "Project",
-      "commandLineArgs": "articles -a \"China\" -c 100"
+      "commandLineArgs": "4chpol -s \"Ilhan Omar\" -c 100"
     }
   }
 }

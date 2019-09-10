@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.IO;
 using System.Linq;
+using System.Text.RegularExpressions;
 using System.Threading;
 using System.Threading.Tasks;
 
@@ -23,6 +24,9 @@ namespace Canaan
         public static Dictionary<string, Dictionary<string, Func<Article, Article>>> ContentTransforms { get; } =
             new Dictionary<string, Dictionary<string, Func<Article, Article>>>();
 
+        //public static Regex urlRegex = new Regex(@"(http|https):\/\/[\w\-_]+(\.[\w\-_] +)+[\w\-\.,@?^=%&amp;:\/~\+#]*[\w\-\@?^=%&amp;\/~\+#]", RegexOptions.Compiled);
+        public static Regex urlRegex = new Regex(@"(http|ftp|https):\/\/([\w\-_]+(?:(?:\.[\w\-_]+)+))([\w\-\.,@?^=% &amp;:/~\+#]*[\w\-\@?^=%&amp;/~\+#])?", RegexOptions.Compiled);
+        
         public static List<Article> GetArticlesFullTextFromUrl(List<Article> articles)
         {
       
@@ -75,6 +79,8 @@ namespace Canaan
             CQ dom = html;
             return dom.Text();
         }
+
+        public static string RemoveUrlsFromText(string text) => urlRegex.Replace(text, "");
 
         public static async Task<byte[]> GetImageFromUrlAsync(string url)
         {

@@ -47,6 +47,12 @@ namespace Canaan
         [JsonProperty("additional")]
         public Dictionary<string, object> Additional { get; set; }
 
+        [JsonProperty("entities")]
+        public List<string> Entities { get; set; }
+
+        [JsonProperty("threat_intent")]
+        public double ThreatIntent { get; set; }
+
         [JsonIgnore]
         public DateTime Date => DatePublished;
 

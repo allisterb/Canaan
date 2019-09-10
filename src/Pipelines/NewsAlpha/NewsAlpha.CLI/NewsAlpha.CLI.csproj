@@ -31,4 +31,10 @@
     <ProjectReference Include="..\NewsAlpha.Pipelines.Azure.BingNews\NewsAlpha.Pipelines.Azure.BingNews.csproj" />
   </ItemGroup>
 
+  <ItemGroup>
+    <None Update="config.json">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
 </Project>

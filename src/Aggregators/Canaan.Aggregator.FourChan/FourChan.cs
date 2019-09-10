@@ -23,6 +23,7 @@ namespace Canaan
 
         #region Properties
         static Regex repliesRegex = new Regex(">>\\d+", RegexOptions.Compiled);
+        public AzureLUIS NLUService = new AzureLUIS();
         #endregion
 
         #region Methods
@@ -142,13 +143,25 @@ namespace Canaan
                             }
                         }
                         p.Text = repliesRegex.Replace(p.Text, string.Empty).Replace(">", string.Empty);
-                    }
+                        p.Text = WebScraper.RemoveUrlsFromText(p.Text);
 
+                    }
                 }
                 
                 foreach(var p in posts.Values.SelectMany(x => x))
                 {
                     p.HasIdentityHate = HateWords.IdentityHateWords.Any(w => p.Text.Contains(w));
+                    
+                    await NLUService.GetPredictionForPost(p);
+                    if (p.Entities.Count > 0)
+                    {
+                        Info("Detected {0} entities in post {1}.", p.Entities.Count, p.Id);
+                    }
+                    if (p.ThreatIntent > 0.0)
+                    {
+                        Info("Detected threat intent {0:0.00} in post {1}.", p.ThreatIntent, p.Id);
+                    }
+                    
                 }
 
                 op.Complete();
@@ -222,6 +235,17 @@ namespace Canaan
                     }
 
                     p.Text = repliesRegex.Replace(p.Text, string.Empty).Replace(">", string.Empty);
+                    p.Text = WebScraper.RemoveUrlsFromText(p.Text);
+                    p.HasIdentityHate = HateWords.IdentityHateWords.Any(w => p.Text.Contains(w));
+                        await NLUService.GetPredictionForPost(p);
+                        if (p.Entities.Count > 0)
+                        {
+                            Info("Detected {0} entities in post {1}.", p.Entities.Count, p.Id);
+                        }
+                        if (p.ThreatIntent > 0.0)
+                        {
+                            Info("Detected threat intent {0:0.00} in post {1}.", p.ThreatIntent, p.Id);
+                        }
                 }
                 op.Complete();
                 return (thread, posts);

@@ -108,12 +108,12 @@ namespace NewsAlpha
             })
             .WithParsed<GabOptions>(o =>
             {
-                Search("gab", o.Search, o.IdentityHate, o.Links, o.Count).Wait();
+                Search("gab", o.Search, o.ThreatIntent, o.IdentityHate, o.Links, o.Count).Wait();
                 Exit(ExitResult.SUCCESS);
             })
             .WithParsed<FourChanPolOptions>(o =>
             {
-                Search("4chpol", o.Search, o.IdentityHate, o.Links, o.Count).Wait();
+                Search("4chpol", o.Search, o.ThreatIntent, o.IdentityHate, o.Links, o.Count).Wait();
                 Exit(ExitResult.SUCCESS);
             })
             .WithParsed<ArticleOptions>(o =>
@@ -133,38 +133,40 @@ namespace NewsAlpha
         #endregion
 
         #region Methods
-
-        static async Task AddNewsTopic(string topic, int articleCount)
+        static async Task Search(string index, string query, double threatIntent, bool identityhate, bool search_links, int top)
         {
-            BingNewsAzure pipeline = new BingNewsAzure(topic);
-            await pipeline.InsertArticlesForTopic(topic, 2019, articleCount);
-        }
-
-        static async Task RetrieveNewsTopic(string topic, int articleCount)
-        {
-            BingNewsAzure pipeline = new BingNewsAzure(topic);
-            await pipeline.AnalyzeArticleImages(new List<Article>());
-        }
-        static async Task Search(string index, string query, bool identityhate, bool search_links, int top)
-        {
-            var client = new SearchIndexClient("socialnewssearch", index, new SearchCredentials("38A6BB9CAD72EF4F4D55A4874B10935B"));
+            var client = new SearchIndexClient("socialnews", index, new SearchCredentials("0FD303356E9F04596A433B00CCE37F1E"));
             client.SetUserAgent("NewsAlphaCLI");
-            string field = "text", filter = "all", limit = "all";
+            string field = "text", filterMsg = "none", limit = "all";
             SearchParameters parameters = new SearchParameters()
             {
-                Select = new[] { "id", "user", "text", "date_published", "links", "identity_hate"},
+                Select = new[] { "id", "user", "text", "date_published", "no", "links", "identity_hate", "entities", "threat_intent"},
+                OrderBy = new [] {"date_published desc"}
             };
-            if (identityhate)
+            if (threatIntent > 0.0)
             {
-                parameters.Filter = "identity_hate eq false";
-                filter = "identity hate";
+                parameters.Filter = "threat_intent gt " + threatIntent;
+                filterMsg = "threat_intent";
             }
+         
+            if (identityhate && threatIntent > 0.0)
+            {
+                parameters.Filter = "and identity_hate eq true";
+                filterMsg = "threat_intent and identity_hate";
+
+            }
+            else if (identityhate)
+            {
+                parameters.Filter = "identity_hate eq true";
+                filterMsg = "identity_hate";
+            }
+
             if (search_links)
             {
                 parameters.SearchFields = new[] { "links/uri" };
                 field = "links";
             }
-            if(top > 0)
+            if (top > 0)
             {
                 parameters.Top = top;
                 limit = top.ToString();
@@ -173,7 +175,7 @@ namespace NewsAlpha
             List<SocialNewsSearchResult> results = new List<SocialNewsSearchResult>();
             
             using (var op = Begin("Search {0} for {1} containing {2} filtered on {3} limited to {4} results", 
-                index, field, query, filter, limit))
+                index, field, query, filterMsg, limit))
             {
                 docResults = await client.Documents.SearchAsync(query, parameters);
                 op.Complete();
@@ -187,12 +189,18 @@ namespace NewsAlpha
                     User = (string)dr.Document["user"],
                     DatePublished = ((DateTimeOffset) dr.Document["date_published"]).UtcDateTime,
                     Text = (string) dr.Document["text"],
-                    HasIdentityHate = (bool) dr.Document["identity_hate"],
+                    HasIdentityHate = dr.Document["identity_hate"] != null ? (bool) dr.Document["identity_hate"] : false,
+                    No = (long) dr.Document["no"],
+                    ThreatIntent = dr.Document["threat_intent"] != null ? (double) dr.Document["threat_intent"] : 0.0,
                 };
                 try
                 {
                     var links = (IEnumerable<Document>)dr.Document["links"];
                     r.Links = links.Select(l => (string)l["uri"]).ToArray();
+
+                    var entities = (object[]) dr.Document["entities"];
+                    r.Entities = entities.Cast<string>().ToArray();
+
                 }
                 catch
                 {
@@ -200,18 +208,42 @@ namespace NewsAlpha
                 }
                 results.Add(r);
             }
-
-            Info("Showing social news posts in index {0} matching query {1}.\n", index, query);
-            
-            foreach (var r in results.OrderByDescending(r => r.DatePublished))
+            if (results.Count == 0)
             {
-                CO.WriteLineFormatted("Id: {0}\nDate: {1}\nUser: {2}\nText: {3}\n", 
-                    Color.LightGoldenrodYellow, Color.Gray, r.Id, r.DatePublished.ToString(), r.User, r.Text);
+                Info("0 social news posts in index {0} matching query {1}.\n", index.Replace("-index", ""), query);
+                Exit(ExitResult.SUCCESS);
             }
-           
+            Info("Showing social news posts in index {0} matching query {1}.\n", index.Replace("-index", ""), query); 
+            CO.WriteLine("----");
+            foreach (var r in results)
+            {
+                CO.WriteLineFormatted("Id: {0}\nDate: {1} (UTC) \nUser: {2}\nNo.: {3}\nText: {4}\nLinks: \n{5}\nEntities: \n{6}", 
+                    Color.LightGoldenrodYellow, Color.Gray, r.Id, r.DatePublished.ToString(), r.User, r.No, r.Text, "\t" + string.Join(Environment.NewLine + "\t", r.Links), 
+                        r.Entities == null ? "" : "\t" + string.Join(Environment.NewLine + "\t", r.Entities));
+                if (r.ThreatIntent > 0.91)
+                {
+                    CO.WriteLineFormatted("Threat Intent: {0}", Color.Red, Color.Gray, r.ThreatIntent);
+                }
+                else
+                {
+                    CO.WriteLineFormatted("Threat Intent: {0}", Color.LightGoldenrodYellow, Color.Gray, r.ThreatIntent);
+                }
+                CO.WriteLine("----");
+            }  
         }
 
-        
+        static async Task AddNewsTopic(string topic, int articleCount)
+        {
+            BingNewsAzure pipeline = new BingNewsAzure(topic);
+            await pipeline.InsertArticlesForTopic(topic, 2019, articleCount);
+        }
+
+        static async Task RetrieveNewsTopic(string topic, int articleCount)
+        {
+            BingNewsAzure pipeline = new BingNewsAzure(topic);
+            await pipeline.AnalyzeArticleImages(new List<Article>());
+        }
+
         static void Exit(ExitResult result)
         {
         

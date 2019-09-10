@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
+using System.Linq;
 using System.Text;
 
 using System.Threading.Tasks;
@@ -31,6 +32,14 @@ namespace Canaan.Tests
         {
             var t = aggregator.GetThread("pol", "224988448").Result;
             Assert.NotNull(t.Item1);
+        }
+
+        [Fact]
+        public void CanGetIntents()
+        {
+
+            var t = aggregator.GetThread("pol", "226020907").Result;
+            var post = t.Item2.First();
         }
 
     }
