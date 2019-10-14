@@ -67,6 +67,10 @@ namespace NewsAlpha
                     {
                         help.AddVerbs(error.Type);
                     }
+                    else
+                    {
+                        help.AddVerbs(typeof(GabOptions), typeof(FourChanPolOptions), typeof(ArticleOptions));
+                    }
                     Info(help);
                     Exit(ExitResult.SUCCESS);
                 }
@@ -146,6 +150,7 @@ namespace NewsAlpha
             if (threatIntent > 0.0)
             {
                 parameters.Filter = "threat_intent gt " + threatIntent;
+                parameters.OrderBy = new[] { "threat_intent desc, date_published desc" };
                 filterMsg = "threat_intent";
             }
          
@@ -153,7 +158,7 @@ namespace NewsAlpha
             {
                 parameters.Filter = "and identity_hate eq true";
                 filterMsg = "threat_intent and identity_hate";
-
+                
             }
             else if (identityhate)
             {

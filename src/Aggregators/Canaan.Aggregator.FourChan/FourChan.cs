@@ -23,7 +23,6 @@ namespace Canaan
 
         #region Properties
         static Regex repliesRegex = new Regex(">>\\d+", RegexOptions.Compiled);
-        public AzureLUIS NLUService = new AzureLUIS();
         #endregion
 
         #region Methods
@@ -151,17 +150,6 @@ namespace Canaan
                 foreach(var p in posts.Values.SelectMany(x => x))
                 {
                     p.HasIdentityHate = HateWords.IdentityHateWords.Any(w => p.Text.Contains(w));
-                    
-                    await NLUService.GetPredictionForPost(p);
-                    if (p.Entities.Count > 0)
-                    {
-                        Info("Detected {0} entities in post {1}.", p.Entities.Count, p.Id);
-                    }
-                    if (p.ThreatIntent > 0.0)
-                    {
-                        Info("Detected threat intent {0:0.00} in post {1}.", p.ThreatIntent, p.Id);
-                    }
-                    
                 }
 
                 op.Complete();
@@ -169,7 +157,51 @@ namespace Canaan
             }
         }
 
-        public List<Post> ParsePostsFromThreadJson(string board, string json)
+        public async Task<ValueTuple<NewsThread, List<Post>>> GetThread(string board, string threadno)
+        {
+            var r = await HttpClient.GetAsync($"http://a.4cdn.org/{board}/thread/{threadno}.json", CancellationToken);
+            r.EnsureSuccessStatusCode();
+            var json = await r.Content.ReadAsStringAsync();
+            dynamic o = JObject.Parse(json);
+            JArray threadPosts = o.posts;
+            dynamic subjectPost = threadPosts[0];
+            NewsThread thread = new NewsThread()
+            {
+                Source = $"4ch.{board}",
+                No = subjectPost.no,
+                Id = subjectPost.no.ToString() + "-" + YY,
+                DatePublished = DateTimeOffset.FromUnixTimeSeconds((long)subjectPost.time).UtcDateTime,
+                Subject = subjectPost.sub,
+                Text = WebScraper.ExtractTextFromHtmlFrag((string)subjectPost.com),
+                User = subjectPost.name,
+                ReplyCount = subjectPost.replies
+            };
+            var posts = ParsePostsFromThreadJson(board, json);
+            foreach (var p in posts)
+            {
+                p.ThreadId = thread.Id;
+            }
+            foreach (var p in posts)
+            {
+                var rnos = ExtractPostRepliesFromText(p);
+                foreach (var no in rnos)
+                {
+                    p.ReplyTo.Add(no.ToString() + "-" + YY);
+                    var replyto = posts.SingleOrDefault(v => v.No == no);
+                    if (replyto != null)
+                    {
+                        replyto.Replies.Add(p.Id);
+                    }
+                }
+
+                p.Text = repliesRegex.Replace(p.Text, string.Empty).Replace(">", string.Empty);
+                p.Text = WebScraper.RemoveUrlsFromText(p.Text);
+                p.HasIdentityHate = HateWords.IdentityHateWords.Any(w => p.Text.Contains(w));
+            }
+            return (thread, posts);            
+        }
+
+        protected List<Post> ParsePostsFromThreadJson(string board, string json)
         {
             dynamic o = JObject.Parse(json);
             JArray threadPosts = o.posts;
@@ -195,64 +227,7 @@ namespace Canaan
             return posts;
         }
 
-        public async Task<ValueTuple<NewsThread, List<Post>>> GetThread(string board, string threadno)
-        {
-            using (var op = Begin("Get thread no {0} for board {1}", board, threadno))
-            {
-                var r = await HttpClient.GetAsync($"http://a.4cdn.org/{board}/thread/{threadno}.json", CancellationToken);
-                r.EnsureSuccessStatusCode();
-                var json = await r.Content.ReadAsStringAsync();
-                dynamic o = JObject.Parse(json);
-                JArray threadPosts = o.posts;
-                dynamic subjectPost = threadPosts[0];
-                NewsThread thread = new NewsThread()
-                {
-                    Source = $"4ch.{board}",
-                    No = subjectPost.no,
-                    Id = subjectPost.no.ToString() + "-" + YY,
-                    DatePublished = DateTimeOffset.FromUnixTimeSeconds((long)subjectPost.time).UtcDateTime,
-                    Subject = subjectPost.sub,
-                    Text = WebScraper.ExtractTextFromHtmlFrag((string)subjectPost.com),
-                    User = subjectPost.name,
-                    ReplyCount = subjectPost.replies
-                };
-                var posts = ParsePostsFromThreadJson(board, json);
-                foreach (var p in posts)
-                {
-                    p.ThreadId = thread.Id;
-                }
-                foreach (var p in posts)
-                {
-                    var rnos = ExtractPostRepliesFromText(p);
-                    foreach (var no in rnos)
-                    {
-                        p.ReplyTo.Add(no.ToString() + "-" + YY);
-                        var replyto = posts.SingleOrDefault(v => v.No == no);
-                        if (replyto != null)
-                        {
-                            replyto.Replies.Add(p.Id);
-                        }
-                    }
-
-                    p.Text = repliesRegex.Replace(p.Text, string.Empty).Replace(">", string.Empty);
-                    p.Text = WebScraper.RemoveUrlsFromText(p.Text);
-                    p.HasIdentityHate = HateWords.IdentityHateWords.Any(w => p.Text.Contains(w));
-                        await NLUService.GetPredictionForPost(p);
-                        if (p.Entities.Count > 0)
-                        {
-                            Info("Detected {0} entities in post {1}.", p.Entities.Count, p.Id);
-                        }
-                        if (p.ThreatIntent > 0.0)
-                        {
-                            Info("Detected threat intent {0:0.00} in post {1}.", p.ThreatIntent, p.Id);
-                        }
-                }
-                op.Complete();
-                return (thread, posts);
-            }
-        }
-
-        private Dictionary<string, object> GetAdditionalPropsForPost(JObject post)
+        protected Dictionary<string, object> GetAdditionalPropsForPost(JObject post)
         {
             Dictionary<string, object> props = new Dictionary<string, object>();
             if (post.TryGetValue("filename", out JToken filename))

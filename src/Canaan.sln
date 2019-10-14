@@ -74,17 +74,17 @@ Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Canaan.LexicalTagger.HateWo
 EndProject
 Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsAlpha.Pipelines.Azure.BingNews", "Pipelines\NewsAlpha\NewsAlpha.Pipelines.Azure.BingNews\NewsAlpha.Pipelines.Azure.BingNews.csproj", "{798ACA45-3BD1-489F-A912-77014F103AD6}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Canaan.Aggregator.Gab", "Aggregators\Canaan.Aggregator.Gab\Canaan.Aggregator.Gab.csproj", "{D18A34BD-D295-4CBE-8DEF-AC4398241D71}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Canaan.Aggregator.Gab", "Aggregators\Canaan.Aggregator.Gab\Canaan.Aggregator.Gab.csproj", "{D18A34BD-D295-4CBE-8DEF-AC4398241D71}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "NewsAlpha.Pipelines.Azure.Gab", "Pipelines\NewsAlpha\NewsAlpha.Pipelines.Azure.Gab\NewsAlpha.Pipelines.Azure.Gab.csproj", "{595E5989-9605-43BC-AC7A-60DDD294EC40}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "NewsAlpha.Pipelines.Azure.Gab", "Pipelines\NewsAlpha\NewsAlpha.Pipelines.Azure.Gab\NewsAlpha.Pipelines.Azure.Gab.csproj", "{595E5989-9605-43BC-AC7A-60DDD294EC40}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "ComputerVision", "ComputerVision", "{3A7E9DDF-F5F4-415C-97B2-019BF06E651F}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Canaan.ComputerVision.AzureComputerVision", "Analyzers\ComputerVision\Canaan.ComputerVision.AzureComputerVision\Canaan.ComputerVision.AzureComputerVision.csproj", "{E819F7E5-7EFC-4D81-9269-DD18ECA0C0F1}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Canaan.ComputerVision.AzureComputerVision", "Analyzers\ComputerVision\Canaan.ComputerVision.AzureComputerVision\Canaan.ComputerVision.AzureComputerVision.csproj", "{E819F7E5-7EFC-4D81-9269-DD18ECA0C0F1}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "Text", "Text", "{7FB0AFDA-0538-4F47-9A26-7906F82BD551}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Canaan.NLP.AzureTextAnalytics", "Analyzers\NLP\Canaan.NLP.AzureTextAnalytics\Canaan.NLP.AzureTextAnalytics.csproj", "{C1674462-4B30-4E94-83EF-71E8054AB69D}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Canaan.NLP.AzureTextAnalytics", "Analyzers\NLP\Canaan.NLP.AzureTextAnalytics\Canaan.NLP.AzureTextAnalytics.csproj", "{C1674462-4B30-4E94-83EF-71E8054AB69D}"
 EndProject
 Project("{2150E333-8FDC-42A3-9474-1A3956D46DE8}") = "NLU", "NLU", "{767A8ABC-3B0A-495D-908A-64F738B12C92}"
 EndProject

@@ -20,7 +20,6 @@ namespace Canaan
             Initialized = true;
         }
 
-        public AzureLUIS intentService = new AzureLUIS();
         public async Task<IEnumerable<Post>> GetUpdates(int listenTimeout)
         {
             if (HttpClient.Timeout != TimeSpan.FromSeconds(listenTimeout))
@@ -88,11 +87,13 @@ namespace Canaan
             {
                 var props = JObject.Parse(s.Replace("data: ", "")).Properties();
                 var account = (JObject)props.First(p => p.Name == "account").Value;
-            
+                string user = (string)account.Properties().First(p => p.Name == "username").Value;
+
+
                 var post = new Post()
                 {
                     No = (long) props.First(p => p.Name == "id").Value,
-                    Id = (string) props.First(p => p.Name == "id").Value + "-" + YY,
+                    Id = (string) props.First(p => p.Name == "id").Value,
                     DatePublished = (DateTime) props.First(p => p.Name == "created_at").Value,
                     Text = (string) props.First(p => p.Name == "content").Value,
                     User = (string) account.Properties().First(p => p.Name == "username").Value,
@@ -108,15 +109,7 @@ namespace Canaan
                 post.Links = WebScraper.ExtractLinksFromHtmlFrag(html);
                 post.Text = WebScraper.RemoveUrlsFromText(post.Text);
                 post.HasIdentityHate = HateWords.IdentityHateWords.Any(w => post.Text.Contains(w));
-                await intentService.GetPredictionForPost(post);
-                if (post.Entities.Count > 0)
-                {
-                    Info("Detected {0} entities in post {1}.", post.Entities.Count, post.Id);
-                }
-                if (post.ThreatIntent > 0.0)
-                {
-                    Info("Detected threat intent {0:0.00} in post {1}.", post.ThreatIntent, post.Id);
-                }
+
             }   
             return posts;
         }

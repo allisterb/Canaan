@@ -10,6 +10,7 @@
   </ItemGroup>
   <ItemGroup>
     <ProjectReference Include="..\..\..\Aggregators\Canaan.Aggregator.FourChan\Canaan.Aggregator.FourChan.csproj" />
+    <ProjectReference Include="..\..\..\Analyzers\NLU\Canaan.NLU.AzureLUIS\Canaan.NLU.AzureLUIS.csproj" />
     <ProjectReference Include="..\..\..\Base\Canaan.Base\Canaan.Base.csproj" />
     <ProjectReference Include="..\..\..\Loggers\Canaan.Logger.Serilog\Canaan.Logger.Serilog.csproj" />
     <ProjectReference Include="..\..\..\Storage\Canaan.Storage.CosmosDB\Canaan.Storage.CosmosDB.csproj" />
