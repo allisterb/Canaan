@@ -35,7 +35,7 @@ namespace NewsAlpha
             ThrowIfNotInitialized();
             Info("Listening to Gab live stream for 100 seconds.");
             var posts = await Aggregator.GetUpdates(100);
-            if (string.IsNullOrEmpty(Config("CognitiveServices:EnableNLU")))
+            if (!string.IsNullOrEmpty(Config("CognitiveServices:EnableNLU")))
             {
                 using (var op = Begin("Get intents for {0} posts from Azure LUIS", posts.Count()))
                 {
